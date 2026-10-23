@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mystrengthcalc.me/sitemap.xml
+Sitemap: https://onerepmaxcalculator.me/sitemap.xml
