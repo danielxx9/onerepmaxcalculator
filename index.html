@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- v3 patch (2026-10-21): PR alias fix, local offline QR encoder, self-test calibration, technical SEO, manifest icons, i18n guard. -->
+<!-- v3.1 split: CSS -> styles.css, JS -> script.js (content unchanged;
+     JSON-LD structured data stays inline). The deferred external script tag
+     preserves the original end-of-body execution timing. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Rep Max &amp; Strength Calculators — 35 Free Powerlifting Tools</title>
+<meta name="description" content="35-in-1 strength calculator: 1RM (7 formulas), plate loader, RPE charts, Wilks/DOTS/IPF scoring, 5/3/1 &amp; program builders, training tracker. Free, no account.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#a83b1e" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#191816" media="(prefers-color-scheme: dark)">
+<meta name="application-name" content="ORM Calc">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ORM Calc">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='18'%20fill='%23a83b1e'/%3E%3Crect%20x='12'%20y='44'%20width='76'%20height='12'%20rx='3'%20fill='%23f5e3da'/%3E%3Crect%20x='20'%20y='26'%20width='13'%20height='48'%20rx='4'%20fill='%23f5e3da'/%3E%3Crect%20x='67'%20y='26'%20width='13'%20height='48'%20rx='4'%20fill='%23f5e3da'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='18'%20fill='%23a83b1e'/%3E%3Crect%20x='12'%20y='44'%20width='76'%20height='12'%20rx='3'%20fill='%23f5e3da'/%3E%3Crect%20x='20'%20y='26'%20width='13'%20height='48'%20rx='4'%20fill='%23f5e3da'/%3E%3Crect%20x='67'%20y='26'%20width='13'%20height='48'%20rx='4'%20fill='%23f5e3da'/%3E%3C/svg%3E">
+<!-- When you host this file, replace your-domain.example below and uncomment both lines:
+<link rel="canonical" href="https://onerepmaxcalculator.me">
+<meta property="og:url" content="https://onerepmaxcalculator.me">
+-->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="One Rep Max &amp; Strength Calculators">
+<meta property="og:title" content="One Rep Max &amp; Strength Calculators — 35 Free Powerlifting Tools">
+<meta property="og:description" content="1RM (7 formulas), plate loader, RPE charts, Wilks/DOTS/IPF scoring, program builders, training tracker. Free, no sign-up, data stays on your device.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="One Rep Max &amp; Strength Calculators — 35 Free Powerlifting Tools">
+<meta name="twitter:description" content="1RM, plate loader, Wilks/DOTS/IPF, program builders, tracker. Free, no sign-up, offline-friendly.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "url": "https://onerepmaxcalculator.me/",
+  "name": "One Rep Max & Strength Calculators",
+  "alternateName": "ORM Calc",
+  "applicationCategory": "SportsApplication",
+  "operatingSystem": "Any (modern web browser)",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "inLanguage": "en",
+  "description": "35-in-1 strength and powerlifting calculator: one-rep max with 7 formulas, plate loading, percentage and warm-up charts, RPE/RIR, Wilks/DOTS/IPF GL scoring, 5/3/1 and program builders, a training tracker with badges, VBT-based e1RM, and meet-day tools. Runs fully offline; data stays on the device.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": [
+    "One-rep max calculator with 7 formulas",
+    "Plate loading calculator with bar visualization",
+    "Percentage and warm-up charts",
+    "RPE/RIR chart",
+    "Wilks, DOTS and IPF GL score calculators",
+    "5/3/1 and 3 more program generators",
+    "Training log with badges and CSV import/export",
+    "VBT (velocity-based training) e1RM",
+    "Meet-day mode with IPF timing",
+    "Coach share links with locally generated QR codes",
+    "Dark mode and printable output"
+  ]
+}
+</script>
+<!-- All styles live in styles.css -->
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<noscript>
+  <div class="noscript-wrap">
+    <strong>JavaScript required.</strong> This tool performs all calculations in your browser
+    and stores everything locally — it needs JavaScript to run. Please enable it, or use a
+    browser that supports JavaScript.
+  </div>
+</noscript>
+
+<header>
+  <h1>One Rep Max &amp; Strength Calculators</h1>
+  <div class="unit-switch">
+    <label>Units
+      <select id="globalUnit">
+        <option value="kg">Kilograms (kg)</option>
+        <option value="lb">Pounds (lb)</option>
+      </select>
+    </label>
+    <span id="storageBadge" class="pill" title="Storage health"></span>
+  </div>
+</header>
+
+<div class="group-bar no-print" role="toolbar" aria-label="Sections">
+  <button class="group-btn active" data-group="all" data-i18n="g_all">All</button>
+  <button class="group-btn" data-group="calc" data-i18n="g_calc">Calculate</button>
+  <button class="group-btn" data-group="plan" data-i18n="g_plan">Plan</button>
+  <button class="group-btn" data-group="track" data-i18n="g_track">Track</button>
+  <button class="group-btn" data-group="compete" data-i18n="g_compete">Compete</button>
+  <span style="flex:1"></span>
+  <select id="lang-select" aria-label="Language"><option value="en">English</option></select>
+  <button class="group-btn" id="theme-toggle" aria-label="Toggle dark mode">Theme</button>
+</div>
+<nav id="tabs" role="tablist" aria-label="Calculator sections">
+  <button class="tab-btn" role="tab" aria-controls="panel-1rm" data-tab="1rm">1RM</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-repmax" data-tab="repmax">Rep Max</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-percent" data-tab="percent">%</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-tm" data-tab="tm">Training Max</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-plate" data-tab="plate">Plates</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-warmup" data-tab="warmup">Warm-Up</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-convert" data-tab="convert">Convert</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-score" data-tab="score">Scoring</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-standards" data-tab="standards">Standards</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-ratio" data-tab="ratio">BW Ratio</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-imbalance" data-tab="imbalance">Archetype</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-program" data-tab="program">Program</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-bulk" data-tab="bulk">Bulk</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-tracker" data-tab="tracker">Tracker</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-badges" data-tab="badges">Badges</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-attempts" data-tab="attempts">Attempts</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-compare" data-tab="compare">Compare</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-game" data-tab="game">Plate Game</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-readiness" data-tab="readiness">Readiness</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-velocity" data-tab="velocity">Velocity</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-loader" data-tab="loader">Loader</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-forecast" data-tab="forecast">Forecast</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-meet" data-tab="meet">Meet Day</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-data" data-tab="data">Data</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-profile" data-tab="profile">Profile</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-log" data-tab="log">Log</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-builder" data-tab="builder">Builder</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-weak" data-tab="weak">Weak Points</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-planner" data-tab="planner">Attempt Planner</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-fatigue" data-tab="fatigue">Recovery</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-percentile" data-tab="percentile">Percentile</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-goal" data-tab="goal">Goals</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-timer" data-tab="timer">Timer</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-selftest" data-tab="selftest">Reference</button>
+  <button class="tab-btn" role="tab" aria-controls="panel-settings" data-tab="settings">Settings</button>
+</nav>
+
+<main>
+
+<!-- 1rm -->
+<section id="panel-1rm" class="tab-panel" role="tabpanel">
+  <h2>One Rep Max Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Exercise
+        <select id="orm-exercise">
+          <optgroup label="Barbell">
+            <option value="bench">Bench Press</option>
+            <option value="squat">Back Squat</option>
+            <option value="front_squat">Front Squat</option>
+            <option value="deadlift">Deadlift</option>
+            <option value="sumo_deadlift">Sumo Deadlift</option>
+            <option value="rdl">Romanian Deadlift</option>
+            <option value="press">Overhead Press</option>
+            <option value="push_press">Push Press</option>
+            <option value="row">Barbell Row</option>
+            <option value="pendlay_row">Pendlay Row</option>
+            <option value="curl">Barbell Curl</option>
+          </optgroup>
+          <optgroup label="Dumbbell">
+            <option value="db_bench">Dumbbell Bench Press</option>
+            <option value="db_incline">Dumbbell Incline Bench</option>
+            <option value="db_press">Dumbbell Shoulder Press</option>
+            <option value="db_row">Dumbbell Row</option>
+            <option value="db_curl">Dumbbell Curl</option>
+          </optgroup>
+          <optgroup label="Bodyweight">
+            <option value="pullups">Weighted Pull-Ups</option>
+            <option value="chin_ups">Weighted Chin-Ups</option>
+            <option value="dips">Weighted Dips</option>
+          </optgroup>
+          <optgroup label="Machine / Other">
+            <option value="legpress">Leg Press</option>
+            <option value="hack_squat">Hack Squat</option>
+            <option value="smith_bench">Smith Machine Bench</option>
+            <option value="lat_pulldown">Lat Pulldown</option>
+            <option value="cable_row">Cable Row</option>
+          </optgroup>
+          <option value="custom">Custom…</option>
+        </select>
+      </label>
+      <label id="orm-custom-wrap" class="hidden">Custom exercise name
+        <input type="text" id="orm-custom" placeholder="e.g. Trap Bar Deadlift">
+      </label>
+      <div id="orm-loadtype-wrap">Load type
+        <select id="orm-loadtype">
+          <option value="barbell">Barbell — total weight on the bar</option>
+          <option value="per_hand">Dumbbell — weight per hand</option>
+          <option value="total_load">Dumbbell — total load (both hands)</option>
+        </select>
+      </div>
+      <label id="orm-bw-wrap" class="hidden">Your bodyweight (<span class="u"></span>)
+        <input type="number" id="orm-bw" step="0.1" min="20" value="80">
+      </label>
+      <label>Weight lifted (<span class="u"></span>)
+        <input type="number" id="orm-weight" step="0.5" min="0.01" value="100">
+      </label>
+      <label>Repetitions completed
+        <input type="number" id="orm-reps" step="1" min="1" max="36" value="5">
+      </label>
+      <label class="checkgrid">
+        <span><input type="checkbox" id="orm-rpe-toggle"> Use RPE / RIR instead of hard reps</span>
+      </label>
+      <div id="orm-rpe-wrap" class="hidden">
+        <label>RPE (6–10)
+          <select id="orm-rpe">
+            <option value="10">10 — 0 reps left</option>
+            <option value="9.5">9.5</option>
+            <option value="9">9 — 1 rep left</option>
+            <option value="8.5">8.5</option>
+            <option value="8" selected>8 — 2 reps left</option>
+            <option value="7.5">7.5</option>
+            <option value="7">7 — 3 reps left</option>
+            <option value="6">6 — 4 reps left</option>
+          </select>
+        </label>
+      </div>
+      <label>Preferred formula
+        <select id="orm-formula"></select>
+      </label>
+      <div class="row no-print">
+        <button id="orm-share-card">Share card (PNG)</button>
+        <button id="orm-pdf">Export PDF</button>
+        <button id="orm-share">Copy link</button>
+        <button id="orm-print">Print</button>
+        <button id="orm-reset">Reset</button>
+      </div>
+      <p id="orm-error" class="error" role="alert"></p>
+      <p class="muted">Estimates become less reliable as repetitions increase. Values above the
+        configured reliability limit are flagged per formula.</p>
+    </div>
+    <div class="card">
+      <div class="big" id="orm-result">—</div>
+      <p id="orm-result-label" class="muted"></p>
+      <div id="orm-breakdown" class="breakdown"></div>
+      <div class="table-scroll" id="orm-table-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- rep max -->
+<section id="panel-repmax" class="tab-panel" role="tabpanel" hidden>
+  <h2>Rep Max Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>One Rep Max (<span class="u"></span>)
+        <input type="number" id="rm-1rm" step="0.5" min="0.01" value="100">
+      </label>
+      <div class="row tight" style="align-items:end;">
+        <label style="flex:1;margin:0;">Or estimate from a set — weight
+          <input type="number" id="rm-src-weight" step="0.5" min="0.01" value="100">
+        </label>
+        <label style="flex:1;margin:0;">reps
+          <input type="number" id="rm-src-reps" step="1" min="1" max="36" value="5">
+        </label>
+        <button id="rm-use-estimate">Use</button>
+      </div>
+      <label>Formula
+        <select id="rm-formula"></select>
+      </label>
+      <label>Repetition range
+        <span class="row tight" style="margin-top:.2rem;">
+          <input type="number" id="rm-min" min="1" max="36" step="1" value="1" style="flex:1;">
+          <input type="number" id="rm-max" min="1" max="36" step="1" value="20" style="flex:1;">
+        </span>
+      </label>
+      <label class="checkgrid" style="margin-top:.2rem;">
+        <span><input type="checkbox" id="rm-compare"> Compare all formulas</span>
+      </label>
+      <div class="row no-print">
+        <button data-copy-table="#rm-table-wrap">Copy table</button>
+        <button data-csv-table="#rm-table-wrap" data-filename="rep-max-table.csv">Export CSV</button>
+        <button id="rm-share-card">Share card</button>
+        <button id="rm-print">Print</button>
+      </div>
+      <p id="rm-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <p id="rm-summary" class="muted"></p>
+      <div class="table-scroll" id="rm-table-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- percentage -->
+<section id="panel-percent" class="tab-panel" role="tabpanel" hidden>
+  <h2>Percentage Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>One Rep Max (<span class="u"></span>)
+        <input type="number" id="pc-1rm" step="0.5" min="0.01" value="100">
+      </label>
+      <label>Rounding increment
+        <select id="pc-round"></select>
+      </label>
+      <label>Percentages</label>
+      <div id="pc-checkboxes" class="checkgrid"></div>
+      <label style="margin-top:.5rem;">Custom percentages (comma separated, ≤100)
+        <input type="text" id="pc-custom" placeholder="e.g. 72.5, 87.5">
+      </label>
+      <label>Estimate reps with formula
+        <select id="pc-formula"></select>
+      </label>
+      <div class="row no-print">
+        <button data-copy-table="#pc-table-wrap">Copy table</button>
+        <button data-csv-table="#pc-table-wrap" data-filename="percentage-table.csv">Export CSV</button>
+        <button id="pc-share-card">Share card</button>
+        <button id="pc-print">Print</button>
+      </div>
+      <p id="pc-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <p id="pc-summary" class="muted"></p>
+      <div class="table-scroll" id="pc-table-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- training max -->
+<section id="panel-tm" class="tab-panel" role="tabpanel" hidden>
+  <h2>Training Max Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>One Rep Max source
+        <select id="tm-source">
+          <option value="tested">Tested 1RM</option>
+          <option value="estimated">Estimated 1RM</option>
+        </select>
+      </label>
+      <label>One Rep Max (<span class="u"></span>)
+        <input type="number" id="tm-1rm" step="0.5" min="0.01" value="100">
+      </label>
+      <label>Training max percentage (%)
+        <input type="number" id="tm-pct" step="0.5" min="10" max="100" value="90">
+      </label>
+      <label>Rounding increment
+        <select id="tm-round"></select>
+      </label>
+      <label>Working percentages (comma separated, ≤100)
+        <input type="text" id="tm-work" value="65, 70, 75, 80, 85, 90">
+      </label>
+      <div class="row no-print">
+        <button data-copy-table="#tm-table-wrap">Copy table</button>
+        <button data-csv-table="#tm-table-wrap" data-filename="training-max.csv">Export CSV</button>
+        <button id="tm-print">Print</button>
+      </div>
+      <p id="tm-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <div class="big" id="tm-result">—</div>
+      <p id="tm-summary" class="muted"></p>
+      <div id="tm-diff" class="breakdown"></div>
+      <div class="table-scroll" id="tm-table-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- plates -->
+<section id="panel-plate" class="tab-panel" role="tabpanel" hidden>
+  <h2>Plate Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Target total weight (<span class="u"></span>)
+        <input type="number" id="pl-target" step="0.5" min="0" value="100">
+      </label>
+      <label>Bar weight (<span class="u"></span>)
+        <select id="pl-bar"></select>
+      </label>
+      <label>Available plates (count per side)</label>
+      <div id="pl-inventory" class="inv-grid"></div>
+      <div class="row no-print">
+        <button id="pl-reset-inv">Reset inventory</button>
+        <button data-copy-table="#pl-table-wrap">Copy plates</button>
+        <button data-csv-table="#pl-table-wrap" data-filename="plate-loading.csv">Export CSV</button>
+        <button id="pl-share-card">Share card</button>
+        <button id="pl-print">Print</button>
+      </div>
+      <p id="pl-error" class="error" role="alert"></p>
+      <p class="muted">Inventory is stored per unit — switch units and your kg/lb plate
+        inventories are kept independently.</p>
+    </div>
+    <div class="card">
+      <div class="big" id="pl-result">—</div>
+      <p id="pl-summary" class="muted"></p>
+      <div id="pl-diagram" class="plate-diagram"></div>
+      <div id="pl-warning"></div>
+      <div class="table-scroll" id="pl-table-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- warm-up -->
+<section id="panel-warmup" class="tab-panel" role="tabpanel" hidden>
+  <h2>Warm-Up Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Base weight (<span class="u"></span>)
+        <input type="number" id="wu-base" step="0.5" min="0.01" value="100">
+      </label>
+      <label>Base is
+        <select id="wu-basetype">
+          <option value="working">Working weight</option>
+          <option value="1rm">1RM</option>
+        </select>
+      </label>
+      <label>Warm-up style
+        <select id="wu-style">
+          <option value="general">General — gradual jumps, more reps early</option>
+          <option value="pl">Powerlifting — fewer reps, heavier singles</option>
+        </select>
+      </label>
+      <label>Number of warm-up sets
+        <input type="number" id="wu-sets" step="1" min="1" max="12" value="5">
+      </label>
+      <label>Start % of working weight
+        <input type="number" id="wu-start" step="1" min="5" max="95" value="40">
+      </label>
+      <label>End % of working weight
+        <input type="number" id="wu-end" step="1" min="10" max="100" value="90">
+      </label>
+      <label>Rounding increment
+        <select id="wu-round"></select>
+      </label>
+      <label>Rest between sets (seconds)
+        <input type="number" id="wu-rest" step="15" min="0" max="900" value="90">
+      </label>
+      <label class="checkgrid">
+        <span><input type="checkbox" id="wu-plateaware" checked> Snap warm-ups to loadable weights</span>
+      </label>
+      <div class="row no-print">
+        <button data-copy-table="#wu-table-wrap">Copy plan</button>
+        <button data-csv-table="#wu-table-wrap" data-filename="warmup-plan.csv">Export CSV</button>
+        <button id="wu-print">Print plan</button>
+        <button id="wu-reset">Reset sets</button>
+      </div>
+      <p id="wu-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <p id="wu-summary" class="muted"></p>
+      <div class="table-scroll" id="wu-table-wrap"></div>
+      <p class="muted">Weights and reps are editable — change any value to customise the plan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- convert -->
+<section id="panel-convert" class="tab-panel" role="tabpanel" hidden>
+  <h2>Weight Conversion Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Value
+        <input type="number" id="cv-value" step="0.01" value="100">
+      </label>
+      <label>From
+        <select id="cv-from">
+          <option value="kg">Kilograms (kg)</option>
+          <option value="lb">Pounds (lb)</option>
+        </select>
+      </label>
+      <label>To
+        <select id="cv-to">
+          <option value="lb">Pounds (lb)</option>
+          <option value="kg">Kilograms (kg)</option>
+        </select>
+      </label>
+      <label>Rounding precision (decimals)
+        <input type="number" id="cv-precision" min="0" max="6" step="1" value="2">
+      </label>
+      <div class="row no-print">
+        <button id="cv-swap">Swap units</button>
+        <button id="cv-copy">Copy result</button>
+        <button id="cv-print">Print</button>
+      </div>
+      <p id="cv-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <div class="big" id="cv-result">—</div>
+      <p id="cv-detail" class="muted"></p>
+      <h3>Common references</h3>
+      <div class="table-scroll" id="cv-table-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- scoring -->
+<section id="panel-score" class="tab-panel" role="tabpanel" hidden>
+  <h2>Wilks / DOTS / IPF GL Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Scoring system
+        <select id="sc-system">
+          <option value="wilks">Wilks (2020 coefficients)</option>
+          <option value="dots">DOTS</option>
+          <option value="ipfgl">IPF GL Points</option>
+        </select>
+      </label>
+      <label id="sc-event-wrap">IPF GL event
+        <select id="sc-event">
+          <option value="classic_pl">Classic (raw) powerlifting</option>
+          <option value="equipped_pl">Equipped powerlifting</option>
+          <option value="classic_bp">Classic bench press only</option>
+          <option value="equipped_bp">Equipped bench press only</option>
+        </select>
+      </label>
+      <label>Sex / category
+        <select id="sc-sex">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </label>
+      <label>Bodyweight (<span class="u"></span>)
+        <input type="number" id="sc-bw" step="0.1" min="20" value="80">
+      </label>
+      <h3>Lifts (optional — total is summed)</h3>
+      <label>Squat (<span class="u"></span>)
+        <input type="number" id="sc-squat" step="0.5" min="0" value="200">
+      </label>
+      <label>Bench press (<span class="u"></span>)
+        <input type="number" id="sc-bench" step="0.5" min="0" value="140">
+      </label>
+      <label>Deadlift (<span class="u"></span>)
+        <input type="number" id="sc-dead" step="0.5" min="0" value="240">
+      </label>
+      <label>Total (<span class="u"></span>) — auto-calculated, editable
+        <input type="number" id="sc-total" step="0.5" min="0" value="580">
+      </label>
+      <div class="row no-print">
+        <button id="sc-copy">Copy result</button>
+        <button id="sc-share-card">Share card</button>
+        <button id="sc-print">Print</button>
+      </div>
+      <p id="sc-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <div class="big" id="sc-result">—</div>
+      <p id="sc-summary" class="muted"></p>
+      <div id="sc-breakdown" class="breakdown"></div>
+      <details>
+        <summary>Reverse solver — what total hits a target score?</summary>
+        <div class="row tight" style="align-items:end;margin-top:.4rem;">
+          <label style="flex:1;margin:0;">Target score
+            <input type="number" id="sc-rev-target" step="1" min="1" value="400">
+          </label>
+          <button id="sc-rev-go">Solve</button>
+        </div>
+        <p id="sc-rev-result" class="muted"></p>
+      </details>
+      <details>
+        <summary>Coefficient source</summary>
+        <p class="muted">
+          Wilks uses the 2020 revised (Wilks2) polynomial with a 600 multiplier; Wilks and DOTS clamp bodyweight to their official ranges. IPF GL supports classic/equipped powerlifting and bench-only events. DOTS uses the published DOTS coefficients.
+          IPF GL uses the published Goodlift coefficients (GL = total × 100 / (A − B·e<sup>−C·bw</sup>)).
+          Bodyweights are converted to kilograms. Federations periodically update or add rulesets
+          (separate raw/equipped tables, weight-class adjustments). Verify against current
+          federation documentation before using a score for qualification or records.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- standards -->
+<section id="panel-standards" class="tab-panel" role="tabpanel" hidden>
+  <h2>Strength Standards Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Exercise
+        <select id="st-exercise">
+          <option value="bench">Bench Press</option>
+          <option value="squat">Squat</option>
+          <option value="deadlift">Deadlift</option>
+          <option value="press">Overhead Press</option>
+          <option value="row">Barbell Row</option>
+        </select>
+      </label>
+      <label>Sex
+        <select id="st-sex">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </label>
+      <label>Bodyweight (<span class="u"></span>)
+        <input type="number" id="st-bw" step="0.1" min="20" value="80">
+      </label>
+      <label>Weight lifted (<span class="u"></span>)
+        <input type="number" id="st-lift" step="0.5" min="0.01" value="100">
+      </label>
+      <div class="row no-print">
+        <button data-copy-table="#st-table-wrap">Copy table</button>
+        <button data-csv-table="#st-table-wrap" data-filename="strength-standards.csv">Export CSV</button>
+        <button id="st-share-card">Share card</button>
+        <button id="st-print">Print</button>
+      </div>
+      <p id="st-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <div class="big" id="st-result">—</div>
+      <p id="st-summary" class="muted"></p>
+      <div class="table-scroll" id="st-table-wrap"></div>
+      <details open>
+        <summary>Source &amp; methodology</summary>
+        <p class="muted" id="st-source"></p>
+        <label>Benchmark ratios (JSON) — editable, saved locally
+          <textarea id="st-dataset" rows="8" spellcheck="false"></textarea>
+        </label>
+        <div class="row no-print">
+          <button id="st-save-data">Save dataset</button>
+          <button id="st-reset-data">Restore defaults</button>
+        </div>
+        <p id="st-data-msg" class="error"></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- bodyweight ratio -->
+<section id="panel-ratio" class="tab-panel" role="tabpanel" hidden>
+  <h2>Bodyweight Strength Ratio Calculator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Bodyweight (<span class="u"></span>)
+        <input type="number" id="br-bw" step="0.1" min="20" value="80">
+      </label>
+      <label>Exercise
+        <select id="br-exercise">
+          <option value="bench">Bench Press</option>
+          <option value="squat">Squat</option>
+          <option value="deadlift">Deadlift</option>
+          <option value="press">Overhead Press</option>
+          <option value="row">Barbell Row</option>
+          <option value="custom">Custom…</option>
+        </select>
+      </label>
+      <label id="br-custom-wrap" class="hidden">Custom exercise name
+        <input type="text" id="br-custom" placeholder="e.g. Weighted Pull-Up">
+      </label>
+      <label>Weight lifted (<span class="u"></span>)
+        <input type="number" id="br-lift" step="0.5" min="0.01" value="100">
+      </label>
+      <div class="row no-print">
+        <button id="br-add" class="primary">Add to comparison</button>
+        <button id="br-clear">Clear</button>
+        <button data-copy-table="#br-table-wrap">Copy table</button>
+        <button data-csv-table="#br-table-wrap" data-filename="bodyweight-ratios.csv">Export CSV</button>
+      </div>
+      <p id="br-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <div class="big" id="br-result">—</div>
+      <div id="br-breakdown" class="breakdown"></div>
+      <p id="br-animal" class="muted"></p>
+      <h3>Comparison</h3>
+      <div class="table-scroll" id="br-table-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- archetype -->
+<section id="panel-imbalance" class="tab-panel" role="tabpanel" hidden>
+  <h2>Lifter Archetype &amp; Imbalance Detector</h2>
+  <div class="grid">
+    <div class="card">
+      <p class="muted">Enter your current 1RMs. Every field is optional, but at least two are
+        needed for a comparison.</p>
+      <label>Squat (<span class="u"></span>)
+        <input type="number" id="im-squat" step="0.5" min="0" value="160">
+      </label>
+      <label>Bench press (<span class="u"></span>)
+        <input type="number" id="im-bench" step="0.5" min="0" value="120">
+      </label>
+      <label>Deadlift (<span class="u"></span>)
+        <input type="number" id="im-dead" step="0.5" min="0" value="200">
+      </label>
+      <label>Overhead press (<span class="u"></span>)
+        <input type="number" id="im-press" step="0.5" min="0" value="70">
+      </label>
+      <label>Barbell row (<span class="u"></span>)
+        <input type="number" id="im-row" step="0.5" min="0" value="90">
+      </label>
+      <div class="row no-print">
+        <button id="im-use-prs">Fill from tracker PRs</button>
+        <button id="im-share-card">Share card</button>
+      </div>
+      <p id="im-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <div class="archetype">
+        <div class="muted">Your lifter archetype</div>
+        <div class="archetype-name" id="im-archetype">—</div>
+        <div class="archetype-tag" id="im-tag"></div>
+      </div>
+      <h3>Ratio analysis</h3>
+      <div id="im-meters"></div>
+      <h3>Notes</h3>
+      <p class="muted" id="im-notes">
+        Ratio analysis is a heuristic. Limb lengths, technique, training focus, and injury
+        history all shift what's "normal" for a given lifter. Treat it as a conversation
+        starter, not a diagnosis.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- program -->
+<section id="panel-program" class="tab-panel" role="tabpanel" hidden>
+  <h2>Program Generator</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Program
+        <select id="pg-style">
+          <option value="lp">Linear Progression (Starting Strength style)</option>
+          <option value="531">5/3/1 (Wendler)</option>
+          <option value="gzclp">GZCLP</option>
+          <option value="phul">PHUL (Upper / Lower)</option>
+        </select>
+      </label>
+      <label>Weeks to generate
+        <input type="number" id="pg-weeks" min="1" max="16" step="1" value="4">
+      </label>
+      <h3>Training maxes (<span class="u"></span>)</h3>
+      <label>Squat
+        <input type="number" id="pg-squat" step="0.5" min="0" value="160">
+      </label>
+      <label>Bench press
+        <input type="number" id="pg-bench" step="0.5" min="0" value="120">
+      </label>
+      <label>Deadlift
+        <input type="number" id="pg-dead" step="0.5" min="0" value="200">
+      </label>
+      <label>Overhead press
+        <input type="number" id="pg-press" step="0.5" min="0" value="70">
+      </label>
+      <div class="row no-print">
+        <button id="pg-use-prs">Fill from tracker PRs</button>
+        <button id="pg-csv">Export CSV</button>
+        <button id="pg-print">Print</button>
+      </div>
+      <p id="pg-error" class="error" role="alert"></p>
+      <p class="muted">Training maxes drive the loads. If you don't have tested maxes, run the
+        1RM calculator or the tracker first — the numbers here are the ones you'll actually
+        put on the bar, so accuracy matters. Leave a field empty to skip that lift.</p>
+    </div>
+    <div class="card">
+      <p id="pg-summary" class="muted"></p>
+      <div id="pg-table-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- bulk -->
+<section id="panel-bulk" class="tab-panel" role="tabpanel" hidden>
+  <h2>Bulk Calculator</h2>
+  <div class="grid-1">
+    <div class="card">
+      <div class="row" style="align-items:end;">
+        <label style="margin:0;">Session formula
+          <select id="bk-formula"></select>
+        </label>
+        <label style="margin:0;">Per-entry formula
+          <select id="bk-mode">
+            <option value="session">Use session formula for all</option>
+            <option value="entry">Allow per-entry formula</option>
+          </select>
+        </label>
+        <button id="bk-add" class="primary">Add entry</button>
+        <button data-copy-table="#bk-table-wrap">Copy</button>
+        <button data-csv-table="#bk-table-wrap" data-filename="bulk-session.csv">Export CSV</button>
+        <button id="bk-log">Log session to tracker</button>
+        <button id="bk-print">Print</button>
+      </div>
+      <div id="bk-entries" style="margin-top:1rem;"></div>
+      <p id="bk-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <h3>Session results</h3>
+      <div class="table-scroll" id="bk-table-wrap"></div>
+      <p id="bk-summary" class="muted"></p>
+    </div>
+  </div>
+</section>
+
+<!-- tracker -->
+<section id="panel-tracker" class="tab-panel" role="tabpanel" hidden>
+  <h2>Training Progress Tracker</h2>
+  <div class="grid-1">
+    <div class="card">
+      <h3>Add / edit a session record</h3>
+      <div class="session-row">
+        <label style="margin:0;">Date
+          <input type="date" id="tk-date">
+        </label>
+        <label style="margin:0;">Exercise
+          <input type="text" id="tk-exercise" list="tk-exercise-list" placeholder="e.g. Squat">
+          <datalist id="tk-exercise-list">
+            <option value="Bench Press"></option><option value="Squat"></option>
+            <option value="Deadlift"></option><option value="Overhead Press"></option>
+            <option value="Barbell Row"></option>
+          </datalist>
+        </label>
+        <label style="margin:0;">Weight (<span class="u"></span>)
+          <input type="number" id="tk-weight" step="0.5" min="0.01">
+        </label>
+        <label style="margin:0;">Reps
+          <input type="number" id="tk-reps" step="1" min="1" max="36">
+        </label>
+      </div>
+      <label>Notes
+        <input type="text" id="tk-notes" placeholder="optional">
+      </label>
+      <div class="row no-print">
+        <button id="tk-save" class="primary">Save record</button>
+        <button id="tk-cancel" class="hidden">Cancel edit</button>
+        <button id="tk-export">Export CSV</button>
+        <button id="tk-import-btn">Import CSV</button>
+        <input type="file" id="tk-import" accept=".csv,text/csv" class="hidden">
+        <button id="tk-delete-all" class="danger">Delete all stored data</button>
+      </div>
+      <p id="tk-error" class="error" role="alert"></p>
+    </div>
+
+    <div class="card">
+      <h3>Filters</h3>
+      <div class="row" style="align-items:end;">
+        <label style="margin:0;">Exercise
+          <select id="tk-filter-ex"><option value="">All exercises</option></select>
+        </label>
+        <label style="margin:0;">From
+          <input type="date" id="tk-from">
+        </label>
+        <label style="margin:0;">To
+          <input type="date" id="tk-to">
+        </label>
+        <button id="tk-clear-filters">Clear filters</button>
+      </div>
+      <h3>Personal records</h3>
+      <div class="table-scroll" id="tk-pr-wrap"></div>
+      <h3>Progress over time</h3>
+      <div id="tk-chart-wrap"></div>
+      <div id="tk-projection"></div>
+    </div>
+
+    <div class="card">
+      <h3>History</h3>
+      <div id="tk-list"></div>
+      <p id="tk-count" class="muted"></p>
+    </div>
+  </div>
+</section>
+
+<!-- badges -->
+<section id="panel-badges" class="tab-panel" role="tabpanel" hidden>
+  <h2>Milestone Badges</h2>
+  <div class="card">
+    <p class="muted">Badges unlock automatically from saved training records. Add lifts in the
+      Tracker to make progress here.</p>
+    <div class="banner" id="badges-banner">
+      <strong id="badges-progress">—</strong>
+    </div>
+    <label style="max-width:220px;">Bodyweight (<span class="u"></span>) — needed for bodyweight-scaled badges
+      <input type="number" id="badges-bw" data-weight step="0.1" min="20" value="80">
+    </label>
+    <div id="badges-grid" class="badge-grid"></div>
+    <div class="row no-print">
+      <button id="badges-share-card">Share unlocked badges</button>
+      <button id="badges-goto-tracker">Go to Tracker</button>
+    </div>
+  </div>
+</section>
+
+<!-- attempts -->
+<section id="panel-attempts" class="tab-panel" role="tabpanel" hidden>
+  <h2>Competition Attempt Planner</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Minimum increment (<span class="u"></span>)
+        <select id="at-increment"></select>
+      </label>
+      <label>Rounding increment (<span class="u"></span>)
+        <select id="at-round"></select>
+      </label>
+      <label>Target total (<span class="u"></span>) — optional
+        <input type="number" id="at-target-total" step="0.5" min="0" value="580">
+      </label>
+      <div class="row tight">
+        <button id="at-split">Split target across lifts</button>
+        <button id="at-use-prs">Fill from tracker PRs</button>
+      </div>
+      <label>Squat target (<span class="u"></span>)
+        <input type="number" id="at-squat" step="0.5" min="0" value="200">
+      </label>
+      <label>Bench press target (<span class="u"></span>)
+        <input type="number" id="at-bench" step="0.5" min="0" value="140">
+      </label>
+      <label>Deadlift target (<span class="u"></span>)
+        <input type="number" id="at-dead" step="0.5" min="0" value="240">
+      </label>
+      <div class="row no-print">
+        <button id="at-recalc" class="primary">Recalculate attempts</button>
+        <button data-copy-table="#at-table-wrap">Copy plan</button>
+        <button data-csv-table="#at-table-wrap" data-filename="attempt-plan.csv">Export CSV</button>
+        <button id="at-share-card">Share card</button>
+        <button id="at-print">Print</button>
+      </div>
+      <p id="at-error" class="error" role="alert"></p>
+      <p class="muted">These are estimates, not guaranteed competition results. Verify attempt
+        increments against your federation's rules before submitting.</p>
+    </div>
+    <div class="card">
+      <p id="at-summary" class="muted"></p>
+      <div class="table-scroll" id="at-table-wrap"></div>
+      <div id="at-projection" class="breakdown"></div>
+    </div>
+  </div>
+</section>
+
+<!-- compare -->
+<section id="panel-compare" class="tab-panel" role="tabpanel" hidden>
+  <h2>Side-by-Side Comparison &amp; Challenge Links</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Lifter A (you)</h3>
+      <label>Squat (<span class="u"></span>) <input type="number" id="cmp-a-squat" step="0.5" min="0" value="160"></label>
+      <label>Bench (<span class="u"></span>) <input type="number" id="cmp-a-bench" step="0.5" min="0" value="120"></label>
+      <label>Deadlift (<span class="u"></span>) <input type="number" id="cmp-a-dead" step="0.5" min="0" value="200"></label>
+      <label>Bodyweight (<span class="u"></span>) <input type="number" id="cmp-a-bw" step="0.1" min="20" value="80"></label>
+      <h3>Lifter B (challenger)</h3>
+      <label>Squat (<span class="u"></span>) <input type="number" id="cmp-b-squat" step="0.5" min="0" value="140"></label>
+      <label>Bench (<span class="u"></span>) <input type="number" id="cmp-b-bench" step="0.5" min="0" value="110"></label>
+      <label>Deadlift (<span class="u"></span>) <input type="number" id="cmp-b-dead" step="0.5" min="0" value="180"></label>
+      <label>Bodyweight (<span class="u"></span>) <input type="number" id="cmp-b-bw" step="0.1" min="20" value="75"></label>
+      <div class="row no-print">
+        <button id="cmp-share-card">Share comparison</button>
+        <button id="cmp-challenge">Generate challenge link</button>
+        <button id="cmp-copy-challenge">Copy challenge link</button>
+      </div>
+      <p id="cmp-error" class="error" role="alert"></p>
+      <p class="muted">The challenge link encodes lifter A's numbers in the URL. Send it to a
+        friend — when they open it, their numbers are pre-loaded as Lifter B.</p>
+    </div>
+    <div class="card">
+      <p id="cmp-summary" class="muted"></p>
+      <div class="comparison-grid">
+        <div class="comparison-card" id="cmp-card-a">
+          <h3>Lifter A</h3>
+          <div id="cmp-a-table"></div>
+        </div>
+        <div class="comparison-card" id="cmp-card-b">
+          <h3>Lifter B</h3>
+          <div id="cmp-b-table"></div>
+        </div>
+      </div>
+      <div class="table-scroll" id="cmp-table-wrap" style="margin-top:.75rem;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- plate game -->
+<section id="panel-game" class="tab-panel" role="tabpanel" hidden>
+  <h2>Guess the Plates</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="big" id="game-streak">0</div>
+      <p class="muted">Current streak · Best: <span id="game-best">0</span></p>
+      <div class="row no-print">
+        <button id="game-new" class="primary">New round</button>
+        <button id="game-reset">Reset streak</button>
+        <button id="game-share">Share score</button>
+      </div>
+      <p id="game-msg" class="muted"></p>
+      <p class="muted">Read the loaded bar and pick the total weight. A quick way to internalise
+        plate math — the same skill you need at the rack.</p>
+    </div>
+    <div class="card">
+      <p id="game-prompt" class="muted">What's the total weight on the bar?</p>
+      <div class="game-barbell" id="game-barbell"></div>
+      <div id="game-options" style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;max-width:420px;margin:0 auto;"></div>
+      <p id="game-result" class="muted" style="text-align:center;margin-top:1rem;"></p>
+    </div>
+  </div>
+</section>
+
+<!-- readiness -->
+<section id="panel-readiness" class="tab-panel" role="tabpanel" hidden>
+  <h2>Readiness-Adjusted 1RM</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Today's top set</h3>
+      <label>Weight lifted (<span class="u"></span>)<input type="number" id="rd-weight" step="0.5" min="1" value="140"></label>
+      <label>Reps<input type="number" id="rd-reps" step="1" min="1" max="12" value="3"></label>
+      <label>RPE (how hard it felt, 6–10)
+        <select id="rd-rpe">
+          <option value="10">10 — nothing left</option><option value="9.5">9.5</option>
+          <option value="9">9 — 1 rep left</option><option value="8.5">8.5</option>
+          <option value="8" selected>8 — 2 reps left</option><option value="7.5">7.5</option>
+          <option value="7">7 — 3 reps left</option><option value="6">6 — 4 reps left</option>
+        </select>
+      </label>
+      <h3>How do you feel? (1 = poor, 5 = great)</h3>
+      <label>Sleep <output id="rd-sleep-o">3</output><input type="range" id="rd-sleep" min="1" max="5" value="3"></label>
+      <label>Stress (5 = relaxed) <output id="rd-stress-o">3</output><input type="range" id="rd-stress" min="1" max="5" value="3"></label>
+      <label>Soreness (5 = fresh) <output id="rd-sore-o">3</output><input type="range" id="rd-sore" min="1" max="5" value="3"></label>
+      <label>Rounding increment (<span class="u"></span>)<input type="number" id="rd-round" step="0.25" min="0.25" value="2.5"></label>
+      <p id="rd-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <div class="big" id="rd-result">—</div>
+      <p id="rd-summary" class="muted"></p>
+      <div class="meter" aria-hidden="true"><i id="rd-meter" style="width:50%"></i></div>
+      <div id="rd-table-wrap" style="margin-top:.8rem;"></div>
+      <p class="muted" style="font-size:.8rem;">Estimated 1RM = weight ÷ %1RM for (reps + reps in reserve). Readiness adjusts today's targets by −8% to +4%. These are estimates, not medical advice.</p>
+    </div>
+  </div>
+</section>
+
+<section id="panel-velocity" class="tab-panel" role="tabpanel" hidden>
+  <h2>Velocity-Based 1RM</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Lift
+        <select id="ve-lift">
+          <option value="0.30">Squat (min. velocity 0.30 m/s)</option>
+          <option value="0.17" selected>Bench press (0.17 m/s)</option>
+          <option value="0.15">Deadlift (0.15 m/s)</option>
+          <option value="0.19">Overhead press (0.19 m/s)</option>
+          <option value="custom">Custom</option>
+        </select>
+      </label>
+      <label>Minimum velocity threshold (m/s)<input type="number" id="ve-mvt" step="0.01" min="0.05" max="1" value="0.17"></label>
+      <h3>Sets (load and mean bar speed)</h3>
+      <div id="ve-rows"></div>
+      <div class="row no-print"><button id="ve-add">Add set</button><button id="ve-demo">Load example</button></div>
+      <p class="muted" style="font-size:.8rem;">Use a velocity tracker or app to measure mean concentric velocity. Enter at least 2 sets at different weights, ideally 4+ from light to heavy.</p>
+      <p id="ve-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <div class="big" id="ve-result">—</div>
+      <p id="ve-summary" class="muted"></p>
+      <div id="ve-chart"></div>
+    </div>
+  </div>
+</section>
+
+<section id="panel-loader" class="tab-panel" role="tabpanel" hidden>
+  <h2>Smart Plate Loader</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Top / working weight (<span class="u"></span>)<input type="number" id="ld-top" step="0.5" min="1" value="180"></label>
+      <label>Warm-up percentages (comma separated)<input type="text" id="ld-pcts" value="0, 40, 55, 70, 80, 90, 100"></label>
+      <label>Bar weight (<span class="u"></span>)<input type="number" id="ld-bar" step="0.5" min="0" value="20"></label>
+      <label>Collar weight per side (<span class="u"></span>)<input type="number" id="ld-collar" step="0.25" min="0" value="2.5"></label>
+      <label>Plate set
+        <select id="ld-set">
+          <option value="kg">Kilogram competition plates</option>
+          <option value="lb">Pound plates</option>
+          <option value="mixed">Mixed gym (kg + lb plates in kg)</option>
+        </select>
+      </label>
+      <label class="checkgrid"><input type="checkbox" id="ld-optimise" checked> Prefer fewer plate changes (may use one more plate)</label>
+      <p id="ld-error" class="error" role="alert"></p>
+    </div>
+    <div class="card">
+      <div id="ld-summary" class="big" style="font-size:1.2rem;">—</div>
+      <div id="ld-table-wrap"></div>
+      <p class="muted" style="font-size:.8rem;">Plates are listed per side, heaviest first (inside). Colours follow IPF convention: 25 red, 20 blue, 15 yellow, 10 green, 5 white, 2.5 black/red, 1.25 chrome.</p>
+    </div>
+  </div>
+</section>
+
+<section id="panel-forecast" class="tab-panel" role="tabpanel" hidden>
+  <h2>Progress Forecast</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Exercise (from Tracker)<select id="fc-ex"></select></label>
+      <label>Forecast date<input type="date" id="fc-date"></label>
+      <label>Goal 1RM (<span class="u"></span>) — optional<input type="number" id="fc-goal" step="0.5" min="0"></label>
+      <div class="row no-print"><button id="fc-share">Share card</button></div>
+      <p id="fc-error" class="error" role="alert"></p>
+      <p class="muted" style="font-size:.8rem;">Uses all your Tracker entries for this exercise (best estimated 1RM per day), fits a trend line and shows a likely range. Needs at least 3 different days.</p>
+    </div>
+    <div class="card">
+      <div class="big" id="fc-result">—</div>
+      <p id="fc-summary" class="muted"></p>
+      <div id="fc-chart"></div>
+    </div>
+  </div>
+</section>
+
+<section id="panel-meet" class="tab-panel" role="tabpanel" hidden>
+  <h2>Meet Day Mode</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Goal total (<span class="u"></span>)<input type="number" id="mt-goal" step="0.5" min="0" value="600"></label>
+      <div id="mt-lifts"></div>
+      <p class="muted" style="font-size:.8rem;">Tap an attempt to cycle through: not taken, good lift, no lift.</p>
+      <div class="row no-print"><button id="mt-reset">Reset meet</button><button id="mt-share">Share result</button></div>
+    </div>
+    <div class="card">
+      <p class="muted" style="text-align:center;margin:0;">Current total</p>
+      <div class="meet-big" id="mt-total">0</div>
+      <p id="mt-goal-status" class="muted" style="text-align:center;"></p>
+      <div class="meter"><i id="mt-meter" style="width:0%"></i></div>
+      <h3>Attempt timer</h3>
+      <div class="meet-big" id="mt-timer">1:00</div>
+      <div class="meet-grid no-print">
+        <button id="mt-t60">1:00 attempt</button>
+        <button id="mt-t180">3:00 rest</button>
+        <button id="mt-tstop">Stop</button>
+      </div>
+      <p class="muted" style="font-size:.8rem;">You must submit your next attempt within 1 minute of finishing a lift in most federations.</p>
+    </div>
+  </div>
+</section>
+
+<section id="panel-data" class="tab-panel" role="tabpanel" hidden>
+  <h2>Data Export &amp; Program Sharing</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Tracker CSV</h3>
+      <div class="row no-print">
+        <button id="dc-export">Export CSV</button>
+        <label style="margin:0;" class="no-print"><span style="display:inline-block;padding:.35rem .65rem;border:1px solid var(--line);border-radius:var(--radius);cursor:pointer;">Import CSV</span><input type="file" id="dc-import" accept=".csv,text/csv" hidden></label>
+      </div>
+      <p id="dc-csv-msg" class="muted"></p>
+      <h3>kg / lb / stone converter</h3>
+      <label>Kilograms<input type="number" id="dc-kg" step="0.1" value="100"></label>
+      <label>Pounds<input type="number" id="dc-lb" step="0.1"></label>
+      <label>Stone + pounds<span class="row tight"><input type="number" id="dc-st" step="1" style="flex:1"> <input type="number" id="dc-stlb" step="0.1" style="flex:1"></span></label>
+    </div>
+    <div class="card">
+      <h3>Send a program to someone</h3>
+      <label>Program title<input type="text" id="dc-title" maxlength="80" value="Week 1 — Strength"></label>
+      <label>Program (one line per exercise)<textarea id="dc-prog" rows="6" maxlength="2000">Squat 5x5 @ 75%
+Bench press 4x6 @ 72%
+Deadlift 3x3 @ 80%</textarea></label>
+      <div class="row no-print"><button id="dc-make">Create link + QR code</button><button id="dc-copy">Copy link</button></div>
+      <p id="dc-link" class="muted" style="word-break:break-all;font-size:.8rem;"></p>
+      <div id="dc-qr"></div>
+      <div id="dc-received" class="card" hidden style="margin-top:.8rem;"></div>
+      <p class="muted" style="font-size:.8rem;">The program is stored inside the link itself — no account needed. The QR image is drawn locally in your browser, so this works fully offline.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="panel-profile" class="tab-panel" role="tabpanel" hidden>
+  <h2>Profile</h2>
+  <p class="muted">Enter your details once and every calculator below fills in from here.</p>
+  <div class="grid">
+    <div class="card">
+      <label>Name (optional)<input type="text" id="pf-name" maxlength="40" placeholder="e.g. Kunal"></label>
+      <label>Sex<select id="pf-sex"><option value="male">Male</option><option value="female">Female</option></select></label>
+      <label>Age<input type="number" id="pf-age" min="10" max="100" step="1" value="28" data-min="10" data-max="100"></label>
+      <label>Bodyweight (<span class="u"></span>)<input type="number" id="pf-bw" min="25" max="300" step="0.1" value="80" data-min="25" data-max="300"></label>
+      <label>Experience
+        <select id="pf-exp"><option value="beginner">Beginner (under 1 year)</option><option value="intermediate" selected>Intermediate (1–3 years)</option><option value="advanced">Advanced (3+ years)</option></select>
+      </label>
+    </div>
+    <div class="card">
+      <h3>Best lifts (1RM, <span class="u"></span>)</h3>
+      <label>Squat<input type="number" id="pf-squat" min="0" max="600" step="0.5" value="160" data-min="0" data-max="600"></label>
+      <label>Bench press<input type="number" id="pf-bench" min="0" max="500" step="0.5" value="110" data-min="0" data-max="500"></label>
+      <label>Deadlift<input type="number" id="pf-dead" min="0" max="600" step="0.5" value="190" data-min="0" data-max="600"></label>
+      <div class="row-btns">
+        <button class="primary" id="pf-save">Save &amp; fill all calculators</button>
+      </div>
+      <p id="pf-msg" class="muted" role="status"></p>
+    </div>
+  </div>
+</section>
+
+<section id="panel-log" class="tab-panel" role="tabpanel" hidden>
+  <h2>Training Log</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Add a set</h3>
+      <label>Date<input type="date" id="lg-date"></label>
+      <label>Lift<select id="lg-lift"><option>Squat</option><option>Bench</option><option>Deadlift</option><option>Overhead Press</option><option>Row</option></select></label>
+      <label>Weight (<span class="u"></span>)<input type="number" id="lg-weight" min="1" max="600" step="0.5" value="100" data-min="1" data-max="600"></label>
+      <label>Reps<input type="number" id="lg-reps" min="1" max="20" step="1" value="5" data-min="1" data-max="20"></label>
+      <label>Sets<input type="number" id="lg-sets" min="1" max="20" step="1" value="3" data-min="1" data-max="20"></label>
+      <label>RPE (optional, 6–10)<input type="number" id="lg-rpe" min="6" max="10" step="0.5" placeholder="8" data-min="6" data-max="10" data-optional="1"></label>
+      <div class="row-btns">
+        <button class="primary" id="lg-add">Add to log</button>
+        <button id="lg-csv">Export CSV</button>
+        <button id="lg-share">Share card</button>
+      </div>
+      <p id="lg-msg" class="muted" role="status"></p>
+    </div>
+    <div class="card">
+      <label>Show chart for<select id="lg-view"><option>Squat</option><option>Bench</option><option>Deadlift</option><option>Overhead Press</option><option>Row</option></select></label>
+      <div id="lg-stats" class="breakdown"></div>
+      <div id="lg-chart" class="table-scroll"></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:1rem;"><h3>History</h3><div id="lg-table" class="table-scroll"></div></div>
+</section>
+
+<section id="panel-builder" class="tab-panel" role="tabpanel" hidden>
+  <h2>Program Builder</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Method
+        <select id="pb-method">
+          <option value="531">5/3/1 (Wendler, training max 90%)</option>
+          <option value="linear">Percentage block (volume → strength → peak)</option>
+          <option value="rpe">RPE-based (autoregulated)</option>
+        </select>
+      </label>
+      <label>Weeks<input type="number" id="pb-weeks" min="4" max="12" step="1" value="8" data-min="4" data-max="12"></label>
+      <label>Squat 1RM (<span class="u"></span>)<input type="number" id="pb-squat" min="1" step="0.5" value="160" data-min="1" data-max="600"></label>
+      <label>Bench 1RM (<span class="u"></span>)<input type="number" id="pb-bench" min="1" step="0.5" value="110" data-min="1" data-max="500"></label>
+      <label>Deadlift 1RM (<span class="u"></span>)<input type="number" id="pb-dead" min="1" step="0.5" value="190" data-min="1" data-max="600"></label>
+      <label>Rounding (<span class="u"></span>)<input type="number" id="pb-round" min="0.5" step="0.5" value="2.5" data-min="0.5" data-max="10"></label>
+      <div class="row-btns"><button id="pb-print">Print program</button></div>
+    </div>
+    <div class="card"><div id="pb-out" class="table-scroll"></div></div>
+  </div>
+</section>
+
+<section id="panel-weak" class="tab-panel" role="tabpanel" hidden>
+  <h2>Weak-Point Finder</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Squat 1RM (<span class="u"></span>)<input type="number" id="wk-squat" min="1" step="0.5" value="160" data-min="1" data-max="600"></label>
+      <label>Bench 1RM (<span class="u"></span>)<input type="number" id="wk-bench" min="1" step="0.5" value="110" data-min="1" data-max="500"></label>
+      <label>Deadlift 1RM (<span class="u"></span>)<input type="number" id="wk-dead" min="1" step="0.5" value="190" data-min="1" data-max="600"></label>
+      <p class="muted" style="font-size:.85rem;">Typical balanced raw lifter: bench ≈ 65–75% of squat, deadlift ≈ 110–125% of squat. Common coaching guidelines, not strict rules.</p>
+    </div>
+    <div class="card"><div id="wk-out"></div></div>
+  </div>
+</section>
+
+<section id="panel-planner" class="tab-panel" role="tabpanel" hidden>
+  <h2>Meet Attempt Planner</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Lift<select id="ap-lift"><option>Squat</option><option>Bench</option><option>Deadlift</option></select></label>
+      <label>Best recent training set — weight (<span class="u"></span>)<input type="number" id="ap-weight" min="1" step="0.5" value="150" data-min="1" data-max="600"></label>
+      <label>Reps<input type="number" id="ap-reps" min="1" max="10" step="1" value="2" data-min="1" data-max="10"></label>
+      <label>RPE of that set<input type="number" id="ap-rpe" min="6" max="10" step="0.5" value="9" data-min="6" data-max="10"></label>
+      <label>Strategy<select id="ap-style"><option value="safe">Safe (go 9/9)</option><option value="normal" selected>Normal</option><option value="aggressive">Aggressive (chase a PR)</option></select></label>
+      <label>Attempt rounding (<span class="u"></span>)<input type="number" id="ap-round" min="0.5" step="0.5" value="2.5" data-min="0.5" data-max="10"></label>
+      <h3>Warm-up timing</h3>
+      <label>Lifters ahead of you in your flight<input type="number" id="ap-ahead" min="0" max="20" step="1" value="8" data-min="0" data-max="20"></label>
+      <label>Flights before yours<input type="number" id="ap-flights" min="0" max="5" step="1" value="0" data-min="0" data-max="5"></label>
+    </div>
+    <div class="card">
+      <div id="ap-out"></div>
+      <div id="ap-warm" class="table-scroll"></div>
+    </div>
+  </div>
+</section>
+
+<section id="panel-fatigue" class="tab-panel" role="tabpanel" hidden>
+  <h2>Fatigue &amp; Recovery Score</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Sleep last night (hours)<input type="number" id="ft-sleep" min="0" max="14" step="0.5" value="7" data-min="0" data-max="14"></label>
+      <label>Soreness (1 = very sore, 5 = fresh) <output id="ft-sore-o">3</output><input type="range" id="ft-sore" min="1" max="5" value="3"></label>
+      <label>Stress (1 = high, 5 = relaxed) <output id="ft-stress-o">3</output><input type="range" id="ft-stress" min="1" max="5" value="3"></label>
+      <label>Motivation (1 = none, 5 = high) <output id="ft-mot-o">4</output><input type="range" id="ft-mot" min="1" max="5" value="4"></label>
+      <label>RPE of last session<input type="number" id="ft-rpe" min="5" max="10" step="0.5" value="8" data-min="5" data-max="10"></label>
+      <p class="muted" style="font-size:.85rem;">Workload is read from your Training Log (last 7 days vs. the 4-week average).</p>
+    </div>
+    <div class="card">
+      <div class="big" id="ft-score">—</div>
+      <p id="ft-verdict"></p>
+      <div class="meter" aria-hidden="true"><i id="ft-meter" style="width:50%"></i></div>
+      <div id="ft-detail" class="breakdown" style="margin-top:.8rem;"></div>
+      <p class="muted" style="font-size:.8rem;">A guide only, not medical advice.</p>
+    </div>
+  </div>
+</section>
+
+<section id="panel-percentile" class="tab-panel" role="tabpanel" hidden>
+  <h2>Strength Percentile</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Sex<select id="pc-sex"><option value="male">Male</option><option value="female">Female</option></select></label>
+      <label>Age<input type="number" id="pc-age" min="14" max="90" step="1" value="28" data-min="14" data-max="90"></label>
+      <label>Bodyweight (<span class="u"></span>)<input type="number" id="pc-bw" min="35" max="250" step="0.1" value="80" data-min="35" data-max="250"></label>
+      <label>Squat (<span class="u"></span>)<input type="number" id="pc-squat" min="0" step="0.5" value="160" data-min="0" data-max="600"></label>
+      <label>Bench (<span class="u"></span>)<input type="number" id="pc-bench" min="0" step="0.5" value="110" data-min="0" data-max="500"></label>
+      <label>Deadlift (<span class="u"></span>)<input type="number" id="pc-dead" min="0" step="0.5" value="190" data-min="0" data-max="600"></label>
+      <div class="row-btns"><button id="pc-share">Share card</button></div>
+    </div>
+    <div class="card">
+      <div class="big" id="pc-big">—</div>
+      <p id="pctl-summary" class="muted"></p>
+      <div class="meter" aria-hidden="true"><i id="pc-meter" style="width:50%"></i></div>
+      <div id="pc-detail" class="breakdown" style="margin-top:.8rem;"></div>
+      <p class="muted" style="font-size:.8rem;">Estimate: DOTS score compared with an approximate distribution of raw competition lifters, with an approximate age adjustment. Gym-goer percentiles would be higher.</p>
+    </div>
+  </div>
+</section>
+
+<section id="panel-goal" class="tab-panel" role="tabpanel" hidden>
+  <h2>Goal Tracker</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Goal<select id="gl-lift"><option value="Squat">Squat</option><option value="Bench">Bench</option><option value="Deadlift">Deadlift</option><option value="Total">Total</option></select></label>
+      <label>Current (<span class="u"></span>)<input type="number" id="gl-current" min="1" step="0.5" value="160" data-min="1" data-max="1500"></label>
+      <label>Target (<span class="u"></span>)<input type="number" id="gl-target" min="1" step="0.5" value="180" data-min="1" data-max="1500"></label>
+      <label>Experience<select id="gl-exp"><option value="beginner">Beginner</option><option value="intermediate" selected>Intermediate</option><option value="advanced">Advanced</option></select></label>
+      <label><input type="checkbox" id="gl-uselog" checked> Use my Training Log trend when available</label>
+      <div class="row-btns"><button id="gl-share">Share card</button></div>
+    </div>
+    <div class="card">
+      <div class="big" id="gl-weeks">—</div>
+      <p id="gl-summary" class="muted"></p>
+      <div class="meter" aria-hidden="true"><i id="gl-meter" style="width:50%"></i></div>
+      <div id="gl-table" class="table-scroll" style="margin-top:.8rem;"></div>
+    </div>
+  </div>
+</section>
+
+<section id="panel-timer" class="tab-panel" role="tabpanel" hidden>
+  <h2>Rest Timer &amp; Warm-Up</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Rest timer</h3>
+      <div class="big" id="tm2-display" aria-live="polite">2:00</div>
+      <div class="row-btns" id="tm2-presets">
+        <button data-sec="60">1:00</button><button data-sec="90">1:30</button><button data-sec="120">2:00</button>
+        <button data-sec="180">3:00</button><button data-sec="300">5:00</button>
+      </div>
+      <div class="row-btns">
+        <button class="primary" id="tm2-start">Start</button>
+        <button id="tm2-pause">Pause</button>
+        <button id="tm2-add">+15 s</button>
+      </div>
+      <label><input type="checkbox" id="tm2-sound" checked> Sound &amp; vibration when done</label>
+    </div>
+    <div class="card">
+      <h3>Warm-up sets</h3>
+      <label>Working weight (<span class="u"></span>)<input type="number" id="wu2-target" min="20" step="0.5" value="140" data-min="20" data-max="600"></label>
+      <label>Bar weight (<span class="u"></span>)<input type="number" id="wu2-bar" min="5" step="0.5" value="20" data-min="5" data-max="30"></label>
+      <label>Rounding (<span class="u"></span>)<input type="number" id="wu2-round" min="0.5" step="0.5" value="2.5" data-min="0.5" data-max="10"></label>
+      <div id="wu2-out" class="table-scroll"></div>
+    </div>
+  </div>
+</section>
+
+<section id="panel-selftest" class="tab-panel" role="tabpanel" hidden>
+  <h2>Reference &amp; Self-Test</h2>
+  <div class="grid">
+    <div class="card">
+      <p class="muted">Checks every scoring and 1RM formula against reference answers worked out from the published coefficients.</p>
+      <div class="row-btns"><button class="primary" id="st-run">Run self-test</button></div>
+      <div class="big" id="st-big">—</div>
+      <div id="st-out" class="table-scroll"></div>
+    </div>
+    <div class="card">
+      <h3>Where the formulas come from</h3>
+      <ul class="muted" style="font-size:.9rem; line-height:1.6;">
+        <li><b>Epley</b> (1985): 1RM = w × (1 + reps/30)</li>
+        <li><b>Brzycki</b> (1993): 1RM = w × 36 / (37 − reps)</li>
+        <li><b>Lombardi, Lander, Mayhew, O'Conner, Wathan</b>: published rep-max equations</li>
+        <li><b>Wilks 2020</b>: Robert Wilks' revised coefficients, multiplier 600</li>
+        <li><b>DOTS</b>: 500 ÷ 4th-degree polynomial of bodyweight (used by OpenPowerlifting)</li>
+        <li><b>IPF GL Points</b>: 100 × total ÷ (A − B·e<sup>−C·bw</sup>), official IPF 2020 coefficients per event</li>
+        <li><b>RPE chart</b>: Tuchscherer / Helms reps-in-reserve model</li>
+        <li><b>Masters age factors</b>: approximate, based on McCulloch / Foster tables</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="panel-settings" class="tab-panel" role="tabpanel" hidden>
+  <h2>Calculator Settings</h2>
+  <div class="grid">
+    <div class="card">
+      <label>Default unit
+        <select id="se-unit">
+          <option value="kg">Kilograms (kg)</option>
+          <option value="lb">Pounds (lb)</option>
+        </select>
+      </label>
+      <label>Default rounding increment
+        <select id="se-round"></select>
+      </label>
+      <label>Default formula
+        <select id="se-formula"></select>
+      </label>
+      <label>Preferred repetition limit (flags estimates above this)
+        <input type="number" id="se-maxreps" min="1" max="36" step="1" value="10">
+      </label>
+      <label>Decimal places in results
+        <input type="number" id="se-decimals" min="0" max="4" step="1" value="1">
+      </label>
+      <div class="row no-print">
+        <button id="se-save" class="primary">Save settings</button>
+        <button id="se-reset" class="danger">Reset to defaults</button>
+        <button id="se-run-tests">Run self-tests</button>
+      </div>
+      <p id="se-msg" class="ok"></p>
+      <label class="checkgrid" style="margin-top:1rem;">
+        <span><input type="checkbox" id="set-hc"> High-contrast mode (stronger text and borders)</span>
+      </label>
+    </div>
+    <div class="card">
+      <h3>Storage</h3>
+      <p class="muted">Preferences and training history are stored in your browser's
+        <code>localStorage</code>. Nothing is uploaded anywhere. Shareable links never include
+        training history.</p>
+      <div class="table-scroll" id="se-storage-wrap"></div>
+      <div class="row no-print">
+        <button id="se-clear-prefs" class="danger">Clear preferences only</button>
+      </div>
+      <h3>About the formulas</h3>
+      <p class="muted">
+        All seven 1RM formulas are linear in the lifted weight, which allows exact inversion for
+        the rep-max and percentage tables. For 1 repetition every formula returns the lifted
+        weight. Estimates are least reliable above roughly 10 repetitions.
+      </p>
+      <h3>About your data</h3>
+      <p class="muted">
+        All calculations, storage, and exports happen in your browser — nothing is sent to a
+        server. An internet connection is only needed for optional extras such as the QR code.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<footer class="site-footer">
+  <p>One Rep Max &amp; Strength Calculators — 35 free tools for powerlifting and strength training.
+     Runs fully offline; your data stays on your device.</p>
+</footer>
+
+
+</body>
+</html>
