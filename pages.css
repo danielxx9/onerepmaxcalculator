@@ -1,0 +1,213 @@
+/* =========================================
+   PAGES.CSS - Shared styling for static pages
+   (Articles, Legal, FAQ, About, etc.)
+   ========================================= */
+
+:root {
+  --bg: #f3f0ea;
+  --panel: #ffffff;
+  --surface: #f7f4ee;
+  --line: #d8d2c6;
+  --fg: #1c1a17;
+  --muted: #6e665c;
+  --accent: #a83b1e;
+  --accent-2: #f5e3da;
+  --accent-fg: #ffffff;
+  --radius: 6px;
+  --shadow: 0 1px 2px rgba(28,26,23,0.05);
+  --shadow-lg: 0 4px 12px rgba(28,26,23,0.08);
+}
+
+/* Dark Mode Support */
+:root[data-theme="dark"] {
+  --bg: #191816;
+  --panel: #232120;
+  --surface: #2a2725;
+  --line: #3c3934;
+  --fg: #ebe5db;
+  --muted: #a29a8e;
+  --accent: #dd8262;
+  --accent-2: #3a2820;
+  --accent-fg: #191816;
+  --shadow: 0 1px 2px rgba(0,0,0,0.35);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* Base Reset */
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: Georgia, "Iowan Old Style", serif;
+  font-weight: 600;
+  color: var(--fg);
+  line-height: 1.3;
+}
+h1 { font-size: 2.2rem; margin: 0 0 1.5rem 0; letter-spacing: -0.02em; }
+h2 { font-size: 1.6rem; margin: 3rem 0 1rem 0; padding-bottom: 0.5rem; border-bottom: 1px solid var(--line); }
+h3 { font-size: 1.2rem; margin: 2rem 0 1rem 0; }
+p { margin: 0 0 1.25rem 0; color: var(--muted); }
+li { color: var(--muted); margin-bottom: 0.5rem; }
+
+/* Links (Fixes the "Blue Link" issue) */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+a:hover {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+/* Layout */
+.page-header {
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.page-header a {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--fg);
+  font-size: 1rem;
+}
+.page-header a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+.page-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem 1.5rem;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+.breadcrumb a {
+  color: var(--muted);
+  font-weight: 400;
+}
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { margin: 0 8px; }
+
+/* Lead Paragraph */
+.lead {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--fg);
+  margin-bottom: 2.5rem;
+}
+
+/* CTA Box (for linking back to the tool) */
+.cta-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin: 3rem 0;
+  box-shadow: var(--shadow);
+}
+.cta-box h3 { margin-top: 0; margin-bottom: 1rem; font-size: 1.4rem; }
+.cta-button {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  margin-top: 0.5rem;
+  box-shadow: var(--shadow);
+  transition: background 0.2s, transform 0.1s;
+}
+.cta-button:hover {
+  background: var(--fg);
+  text-decoration: none !important;
+  transform: translateY(-1px);
+}
+
+/* FAQ Accordions */
+details.faq-details {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+details.faq-details summary {
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--panel);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+details.faq-details summary::-webkit-details-marker { display: none; }
+details.faq-details summary:hover { background: var(--surface); }
+details.faq-details summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  color: var(--accent);
+  font-weight: 400;
+  transition: transform 0.3s ease;
+}
+details.faq-details[open] summary { background: var(--surface); border-bottom: 1px solid var(--line); }
+details.faq-details[open] summary::after { transform: rotate(45deg); }
+.faq-content {
+  padding: 1.5rem;
+  background: var(--panel);
+}
+.faq-content p:last-child { margin-bottom: 0; }
+
+/* Modern Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--panel);
+}
+th, td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.8rem 1rem;
+  text-align: left;
+}
+th {
+  background: var(--surface);
+  font-weight: 600;
+  color: var(--fg);
+}
+tbody tr:nth-child(even) { background: var(--surface); }
+tbody tr:hover { background: var(--accent-2); }
+
+/* Footer */
+.page-footer {
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  padding-top: 3rem;
+}
