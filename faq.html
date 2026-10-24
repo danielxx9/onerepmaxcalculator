@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strength Training FAQ — 50+ Questions Answered | ORM Calc</title>
+<meta name="description" content="The ultimate strength training FAQ. Learn about 1RM, RPE, Wilks, DOTS, IPF GL, plate loading, and how to use our free calculators.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://onerepmaxcalculator.me/faq.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://onerepmaxcalculator.me/faq.html">
+<meta property="og:title" content="Strength Training FAQ — ORM Calc">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="pages.css">
+<style>
+  /* Accordion Styles for FAQs */
+  details.faq-details {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  details.faq-details summary {
+    padding: 1.2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background: var(--surface);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  details.faq-details summary::-webkit-details-marker {
+    display: none;
+  }
+  details.faq-details summary:hover {
+    background: var(--accent-2);
+  }
+  details.faq-details summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--accent);
+    transition: transform 0.3s ease;
+  }
+  details.faq-details[open] summary::after {
+    transform: rotate(45deg);
+  }
+  .faq-content {
+    padding: 1.2rem;
+    border-top: 1px solid var(--line);
+    line-height: 1.7;
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a One-Rep Max (1RM)?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A one-rep max is the absolute maximum amount of weight you can lift for a single repetition with good form. It is the gold standard for measuring maximal strength. Training programs use your 1RM to calculate working weights (e.g., 5 sets of 5 reps at 75% of your 1RM)." }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are online 1RM calculators?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Highly accurate for sets of 1 to 5 reps (within 1-3% of a true max). They become increasingly unreliable above 10 reps because fatigue and technique breakdown skew the data. For the best results, use a weight you can lift for 3 to 5 reps." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Wilks, DOTS, and IPF GL?",
+      "acceptedAnswer": { "@type": "Answer", "text": "They are all scoring systems to compare lifters of different body weights. Wilks is the oldest (revised in 2020). DOTS is a modern system used by OpenPowerlifting and non-IPF federations. IPF GL is the official scoring system for the International Powerlifting Federation, replacing Wilks in 2020." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the ORM Calc Plate Loader work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most plate calculators use 'greedy' math that rounds up and overshoots your target. ORM Calc uses Dynamic Programming to evaluate every possible plate combination in milliseconds. It finds the exact closest achievable weight without ever exceeding your target." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is RPE and RIR?",
+      "acceptedAnswer": { "@type": "Answer", "text": "RPE (Rate of Perceived Exertion) is a scale from 6 to 10 measuring how hard a set was. RIR (Reps in Reserve) is the number of reps you had left. RPE 10 means 0 RIR (failure). RPE 9 means 1 RIR. RPE 8 means 2 RIR." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="page-header">
+  <a href="/">← One Rep Max &amp; Strength Calculators</a>
+</header>
+
+<main class="page-main">
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>›</span>Frequently Asked Questions
+  </div>
+
+  <h1>The Ultimate Strength Training FAQ</h1>
+  <p class="lead">Over 50 answers to the most common questions about 1RM, powerlifting scores, plate math, RPE, and how to use our tools.</p>
+
+  <h2>1RM & Calculations</h2>
+
+  <details class="faq-details">
+    <summary>What is a One-Rep Max (1RM)?</summary>
+    <div class="faq-content">
+      <p>A one-rep max (1RM) is the absolute maximum amount of weight you can lift for a single repetition with good form. It is the gold standard for measuring maximal strength. Training programs use your 1RM to calculate working weights (e.g., "5 sets of 5 reps at 75% of your 1RM").</p>
+      <p>Testing a true 1RM is physically taxing and requires a spotter. That's why using a <a href="/#tab=1rm">1RM Calculator</a> based on a submaximal set (e.g., lifting a weight for 5 reps) is preferred by most lifters.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>How accurate are online 1RM calculators?</summary>
+    <div class="faq-content">
+      <p>Highly accurate for sets of 1 to 5 reps (within 1-3% of a true max). They become increasingly unreliable above 10 reps because fatigue and technique breakdown skew the data. For the best results, use a weight you can lift for 3 to 5 reps. <a href="/articles/how-accurate-are-1rm-calculators.html">Read our full accuracy guide here</a>.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>Which 1RM formula is the best? (Epley vs. Brzycki)</summary>
+    <div class="faq-content">
+      <p>There is no single "best" formula, as they were all tested on different populations. Epley and Brzycki are the most popular and agree closely at low reps. For the most robust estimate, our calculator shows the "Consensus"—the average of all 7 major formulas. <a href="/articles/epley-vs-brzycki.html">Read the Epley vs Brzycki guide</a>.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>Can I use these calculators for dumbbells?</summary>
+    <div class="faq-content">
+      <p>Yes. However, you must use the total weight. If you are doing Dumbbell Bench Press with 30kg dumbbells, the total load is 60kg (per hand × 2). Our calculator has a load-type selector for this. Note that dumbbell 1RM estimates are slightly less accurate than barbell estimates due to stabilization demands.</p>
+    </div>
+  </details>
+
+  <h2>Plate Loading & Gym Math</h2>
+
+  <details class="faq-details">
+    <summary>How does the ORM Calc Plate Loader work?</summary>
+    <div class="faq-content">
+      <p>Most plate calculators use "greedy" math that rounds up and overshoots your target. ORM Calc uses Dynamic Programming to evaluate every possible plate combination in milliseconds. It finds the exact closest achievable weight without ever exceeding your target. <a href="/#tab=plate">Try the Plate Loader here</a>.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>How do I load a barbell correctly for a 100kg lift?</summary>
+    <div class="faq-content">
+      <p>Assuming a standard 20kg Olympic barbell and a 100kg target: subtract the bar (100 - 20 = 80kg). Divide by two for each side (40kg per side). Load the heaviest plates first, closest to the collars. So, you would load one 25kg plate and one 15kg plate on each side.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>What is the standard bar weight?</summary>
+    <div class="faq-content">
+      <p>A standard Olympic barbell in a commercial gym or powerlifting meet weighs <strong>20 kg (44 lbs)</strong>. A standard women's Olympic barbell weighs 15 kg (33 lbs). An EZ curl bar usually weighs 10 kg (22 lbs). Always verify the bar weight before calculating your plates.</p>
+    </div>
+  </details>
+
+  <h2>Powerlifting Scoring Systems</h2>
+
+  <details class="faq-details">
+    <summary>What is the difference between Wilks, DOTS, and IPF GL?</summary>
+    <div class="faq-content">
+      <p>They are all scoring systems to compare lifters of different body weights. <strong>Wilks</strong> is the oldest (revised in 2020). <strong>DOTS</strong> is a modern system used by OpenPowerlifting and non-IPF federations. <strong>IPF GL</strong> is the official scoring system for the International Powerlifting Federation, replacing Wilks in 2020. <a href="/articles/dots-vs-ipf-gl.html">Read the complete guide</a>.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>What is a good Wilks score?</summary>
+    <div class="faq-content">
+      <p>For raw male lifters: 300 is intermediate, 400 is advanced, 450+ is elite. For raw female lifters: 200 is intermediate, 280+ is advanced, 320+ is elite. <a href="/articles/good-wilks-score.html">See the full benchmark tables here</a>.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>Why did the IPF switch to IPF GL Points?</summary>
+    <div class="faq-content">
+      <p>The IPF replaced Wilks with the "Goodlift" (GL) system in 2020 to better account for the extremes of body weight and to provide separate, more accurate coefficients for raw (classic) lifting, equipped lifting, and bench-only events.</p>
+    </div>
+  </details>
+
+  <h2>Training Max & Autoregulation</h2>
+
+  <details class="faq-details">
+    <summary>What is RPE and RIR?</summary>
+    <div class="faq-content">
+      <p>RPE (Rate of Perceived Exertion) is a scale from 6 to 10 measuring how hard a set was. RIR (Reps in Reserve) is the number of reps you had left. RPE 10 means 0 RIR (failure). RPE 9 means 1 RIR. RPE 8 means 2 RIR. They are used to autoregulate training based on how you feel on a given day.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>What is a Training Max (TM)?</summary>
+    <div class="faq-content">
+      <p>A Training Max is usually 85% to 90% of your true 1RM. Programs like Wendler's 5/3/1 use a Training Max because it allows you to train with submaximal weights, recover faster, and leave room for progress without burning out. <a href="/#tab=tm">Calculate your Training Max here</a>.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>How many warm-up sets should I do?</summary>
+    <div class="faq-content">
+      <p>Usually 3 to 5 sets. Start with an empty bar (20kg) for 10 reps, then 40% of your working weight for 5 reps, 60% for 3 reps, 75% for 2 reps, and 85% for 1 rep. Jumping by 20-30% per set is standard. <a href="/#tab=warmup">Use our Warm-Up Generator here</a>.</p>
+    </div>
+  </details>
+
+  <h2>Tool & Privacy Questions</h2>
+
+  <details class="faq-details">
+    <summary>Is ORM Calc really free?</summary>
+    <div class="faq-content">
+      <p>Yes. All 35 tools are 100% free. There are no premium tiers, no mandatory accounts, and no paywalls. If you enjoy the site, you can <a href="/donate.html">buy us a coffee</a>, but it is entirely optional.</p>
+    </div>
+  </details>
+
+  <details class="faq-details">
+    <summary>Where is my training data stored?</summary>
+    <div class="faq-content">
+      <p>Your data is stored locally in your browser using <code>localStorage</code>. It is never uploaded to our servers. We do not have a database. If you clear your browser cache, your data will be deleted. We highly recommend using the <strong>Export CSV</strong> button in the Tracker to back up your logs.</p>
+    </div>
+  </details>
+
+  <!-- RAPID FIRE FAQS -->
+  <h2>Rapid-Fire FAQs</h2>
+  
+  <div style="background: var(--surface); padding: 2rem; border-radius: 8px; border: 1px solid var(--line);">
+    <h3>Can I use this on my phone?</h3>
+    <p>Yes, the site is fully responsive and optimized for mobile use in the gym.</p>
+
+    <h3>Do I need an account to use the Tracker?</h3>
+    <p>No. The tracker runs entirely in your browser.</p>
+
+    <h3>What is a good DOTS score?</h3>
+    <p>For men, 300+ is good, 400+ is advanced. For women, 200+ is good, 300+ is advanced.</p>
+
+    <h3>Can I test my 1RM safely without a spotter?</h3>
+    <p>Only on deadlift. For bench and squat, use safety pins or a spotter. <a href="/articles/how-to-test-1rm-safely.html">Read our safety guide</a>.</p>
+
+    <h3>What does "consensus" mean in the 1RM calculator?</h3>
+    <p>It is the average result of all 7 published 1RM formulas (Epley, Brzycki, Lombardi, etc.). It is more robust than any single formula.</p>
+
+    <h3>How often should I update my 1RM?</h3>
+    <p>Re-estimate every 2-4 weeks. Test a true 1RM every 8-12 weeks.</p>
+
+    <h3>What is the difference between Raw and Equipped lifting?</h3>
+    <p>Raw allows belts and sleeves. Equipped allows supportive suits and bench shirts, which can add hundreds of pounds to a total.</p>
+
+    <h3>Can I calculate my 1RM from a set of 20 reps?</h3>
+    <p>You can, but it is highly inaccurate. 1RM formulas break down above 10-12 reps.</p>
+
+    <h3>What is a "deload" week?</h3>
+    <p>A planned week where you reduce volume or intensity to let your body recover and supercompensate.</p>
+
+    <h3>How long should I rest between heavy sets?</h3>
+    <p>For maximal strength (1-5 reps), rest 3 to 5 minutes. For hypertrophy (8-12 reps), rest 1.5 to 2.5 minutes.</p>
+
+    <h3>What is the difference between a 1RM and a Training Max?</h3>
+    <p>1RM is your absolute max. A Training Max is roughly 90% of that, used to calculate program percentages safely.</p>
+
+    <h3>Can I use your calculator for front squats?</h3>
+    <p>Yes, but front squat 1RMs are usually lower than back squats due to core/upper back limitations.</p>
+
+    <h3>Why does my Wilks score go down when I gain weight?</h3>
+    <p>If your strength gain doesn't keep pace with your body weight gain, your score drops. Wilks compares strength relative to body weight.</p>
+
+    <h3>What are the IPF weight classes for men?</h3>
+    <p>Currently: 59kg, 66kg, 74kg, 83kg, 93kg, 105kg, 120kg, and 120kg+.</p>
+
+    <h3>What are the IPF weight classes for women?</h3>
+    <p>Currently: 47kg, 52kg, 57kg, 63kg, 69kg, 76kg, 84kg, and 84kg+.</p>
+
+    <h3>Does your plate calculator account for collars?</h3>
+    <p>Yes, our Smart Plate Loader allows you to input the weight of the collars you are using.</p>
+
+    <h3>What is "touch and go" vs "paused" lifting?</h3>
+    <p>Touch and go maintains momentum (easier). Paused stops on the chest/floor (harder, more strict).</p>
+
+    <h3>Can I use this site offline?</h3>
+    <p>Once the page is loaded in your browser, the calculators will continue to work even if you lose internet connection.</p>
+
+    <h3>Why do you have an Affiliate Disclosure?</h3>
+    <p>To comply with the FTC. If we ever link to a product (like a lifting belt) and earn a commission, we must disclose it. <a href="/affiliate-disclosure.html">Read it here</a>.</p>
+
+    <h3>How do I report a bug?</h3>
+    <p>Email us via our <a href="/contact.html">Contact Page</a> with the numbers you used and what went wrong.</p>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <div class="page-footer-inner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 24px 2rem;">
+    
+    <div>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Calculators</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+        <li><a href="/">Home (All 35 Tools)</a></li>
+        <li><a href="/#tab=1rm">1RM Calculator</a></li>
+        <li><a href="/#tab=plate">Plate Loader</a></li>
+        <li><a href="/#tab=score">Wilks / DOTS / IPF</a></li>
+        <li><a href="/#tab=tracker">Training Tracker</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Resources</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+        <li><a href="/articles/">Articles & Guides</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/glossary.html">Glossary</a></li>
+        <li><a href="/federations.html">Federations</a></li>
+        <li><a href="/data-sources.html">Data & Formulas</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Company</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/donate.html" style="color: var(--accent); font-weight: 600;">Donate ❤️</a></li>
+        <li><a href="/changelog.html">Changelog</a></li>
+        <li><a href="/sitemap.html">HTML Sitemap</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Legal</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Service</a></li>
+        <li><a href="/disclaimer.html">Disclaimer</a></li>
+        <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+        <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        <li><a href="/dmca.html">DMCA</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div style="text-align: center; border-top: 1px solid var(--line); padding: 1.5rem; font-size: 0.85rem; color: var(--muted);">
+    <p>© 2026 ORM Calc. Estimates only — not medical advice. Your data stays on your device.</p>
+  </div>
+</footer>
+
+</body>
+</html>

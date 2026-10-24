@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — The Mission & Engineering Behind ORM Calc</title>
+<meta name="description" content="Discover the engineering philosophy behind ORM Calc. Learn why we use Dynamic Programming for plate loading, how our 1RM formulas work, and our commitment to privacy.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://onerepmaxcalculator.me/about.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://onerepmaxcalculator.me/about.html">
+<meta property="og:title" content="About Us — ORM Calc">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+<header class="page-header">
+  <a href="/">← One Rep Max &amp; Strength Calculators</a>
+</header>
+
+<main class="page-main">
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>›</span>About Us
+  </div>
+
+  <h1>About ORM Calc</h1>
+  <p class="lead">ORM Calc was born out of frustration with the current state of fitness software. We set out to build a suite of strength calculators that prioritized mathematical accuracy, user privacy, and raw speed.</p>
+
+  <h2>Our Engineering Philosophy</h2>
+  <p>The fitness app market is saturated with tools that require monthly subscriptions, harvest user data, and use flawed algorithms. We decided to build a "local-first" tool—a piece of software that runs entirely in your browser. 
+  <br><br>
+  By eliminating the backend server, we achieved three things:
+  <ol>
+    <li><strong>Unmatched Privacy:</strong> Your data never leaves your device.</li>
+    <li><strong>Incredible Speed:</strong> The calculators run instantaneously without waiting for a server response.</li>
+    <li><strong>Zero Cost:</strong> Without server costs, we can offer 35 professional-grade tools entirely for free.</li>
+  </ol>
+  </p>
+
+  <h2>Why Our Plate Calculator is Different</h2>
+  <p>Most online plate calculators use a "greedy" algorithm. This means they grab the heaviest plate, then the next heaviest, and stop when they run out of room. The flaw? If your target weight is 100kg, a greedy calculator might tell you to load 102.5kg because it rounded *up* to the nearest available plates.
+  <br><br>
+  <strong>ORM Calc uses Dynamic Programming.</strong> This is a mathematical optimization method that evaluates thousands of plate combinations in milliseconds to find the exact closest achievable weight <em>without ever exceeding your target</em>. It's the same kind of algorithmic logic used in professional logistics and routing software.</p>
+
+  <h2>The 1RM Formulas We Use</h2>
+  <p>There is no single "perfect" formula for estimating a One-Rep Max. Different formulas were tested on different populations (novices, advanced lifters, powerlifters). Instead of forcing you to guess, our 1RM calculator runs all seven major published formulas simultaneously:
+  <ul>
+    <li>Epley (1985)</li>
+    <li>Brzycki (1993)</li>
+    <li>Lombardi (1989)</li>
+    <li>Lander (1985)</li>
+    <li>Mayhew et al. (1992)</li>
+    <li>O'Conner et al. (1989)</li>
+    <li>Wathan (1994)</li>
+  </ul>
+  We display the consensus and median of all seven, providing a much more robust estimate than relying on just one.</p>
+
+  <h2>About the Team</h2>
+  <p>ORM Calc is developed and maintained by a small team of software engineers and passionate strength athletes. We are not a large media corporation. We are lifters who understand the frustration of a bad piece of software. The tool is continuously updated based on feedback from the powerlifting and weightlifting community.</p>
+
+  <h2>How We Are Funded</h2>
+  <p>This tool is completely free to use. There are no premium tiers, no paywalls, and no mandatory accounts. If we utilize affiliate links in our educational articles (like recommending a specific lifting belt), it is clearly disclosed in our <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>.</p>
+
+  <div class="cta-box">
+    <h3>Experience the difference.</h3>
+    <p>Try the fastest, most mathematically sound strength calculators on the web.</p>
+    <a class="cta-button" href="/">Launch the Calculators →</a>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <div class="page-footer-inner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 24px 2rem;">
+    
+    <div>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Calculators</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+        <li><a href="/">Home (All 35 Tools)</a></li>
+        <li><a href="/#tab=1rm">1RM Calculator</a></li>
+        <li><a href="/#tab=plate">Plate Loader</a></li>
+        <li><a href="/#tab=score">Wilks / DOTS / IPF</a></li>
+        <li><a href="/#tab=tracker">Training Tracker</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Resources</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+        <li><a href="/articles/">Articles & Guides</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/glossary.html">Glossary</a></li>
+        <li><a href="/federations.html">Federations</a></li>
+        <li><a href="/data-sources.html">Data & Formulas</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Company</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/donate.html" style="color: var(--accent); font-weight: 600;">Donate ❤️</a></li>
+        <li><a href="/changelog.html">Changelog</a></li>
+        <li><a href="/sitemap.html">HTML Sitemap</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Legal</h3>
+      <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Service</a></li>
+        <li><a href="/disclaimer.html">Disclaimer</a></li>
+        <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+        <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        <li><a href="/dmca.html">DMCA</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div style="text-align: center; border-top: 1px solid var(--line); padding: 1.5rem; font-size: 0.85rem; color: var(--muted);">
+    <p>© 2026 ORM Calc. Estimates only — not medical advice. Your data stays on your device.</p>
+  </div>
+</footer>
+
+</body>
+</html>
