@@ -1,10 +1,6 @@
-/styles.css
-  Cache-Control: public, max-age=604800
-/pages.css
-  Cache-Control: public, max-age=604800
-/script.js
-  Cache-Control: public, max-age=604800
-/og-image.jpg
-  Cache-Control: public, max-age=2592000, immutable
-/robots.txt
-  Cache-Control: public, max-age=86400
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
