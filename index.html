@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+    // Disable Right Click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123) { return false; } // F12
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
+    }
+</script>
+<script>
+    console.log(
+        "%cSTOP!",
+        "color: red; font-size: 50px; font-weight: bold; text-shadow: 2px 2px 0 black;"
+    );
+    console.log(
+        "%cThis is a protected area. If someone told you to copy-paste something here, it's a scam and will give them access to your data.",
+        "color: white; background: red; font-size: 18px; padding: 10px;"
+    );
+</script>
 <script src="https://analytics.ahrefs.com/analytics.js" data-key="aoWYM+lzM5Aiyz72GAqFuw" async></script>
 <!-- v3 patch (2026-10-21): PR alias fix, local offline QR encoder, self-test calibration, technical SEO, manifest icons, i18n guard. -->
 <!-- v3.1 split: CSS -> styles.css, JS -> script.js (content unchanged;
