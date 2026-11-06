@@ -1,0 +1,12 @@
+RewriteEngine On
+Redirect 301 /1rm-calculator https://onerepmaxcalculator.me/#tab=1rm
+Redirect 301 /calories-burned-calculator https://onerepmaxcalculator.me/
+Redirect 301 /calorie-calculator https://onerepmaxcalculator.me/
+Redirect 301 /bmi-calculator https://onerepmaxcalculator.me/
+Redirect 301 /rpe-calculator https://onerepmaxcalculator.me/
+Redirect 301 /body-fat-calculator https://onerepmaxcalculator.me/
+Redirect 301 /training-tracker https://onerepmaxcalculator.me/#tab=tracker
+Redirect 301 /strength-level-calculator https://onerepmaxcalculator.me/
+Redirect 301 /heart-rate-zone-calculator https://onerepmaxcalculator.me/
+Redirect 301 /wilks-dots-calculator https://onerepmaxcalculator.me/#tab=score
+Redirect 301 /plate-calculator https://onerepmaxcalculator.me/#tab=plate
