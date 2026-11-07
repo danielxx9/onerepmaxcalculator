@@ -1,81 +1,43 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://onerepmaxcalculator.me/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/dots-vs-ipf-gl</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/epley-formula</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/epley-vs-brzycki</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/good-wilks-score</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/how-accurate-are-1rm-calculators</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/how-to-calculate-1rm</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/how-to-calculate-bench-press-1rm</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/how-to-calculate-deadlift-1rm</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/how-to-calculate-squat-1rm</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/how-to-test-1rm-safely</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/is-1rm-testing-safe-for-beginners</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://onerepmaxcalculator.me/articles/what-is-1rm</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-</urlset>
+  <!-- Main Tool -->
+  <url><loc>https://onerepmaxcalculator.me/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  
+  <!-- Core Resources -->
+  <url><loc>https://onerepmaxcalculator.me/faq</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/glossary</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/data-sources</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/federations</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  
+  <!-- Articles Hub -->
+  <url><loc>https://onerepmaxcalculator.me/articles/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  
+  <!-- Individual Articles -->
+  <url><loc>https://onerepmaxcalculator.me/articles/what-is-1rm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/how-accurate-are-1rm-calculators</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/how-to-test-1rm-safely</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/is-1rm-testing-safe-for-beginners</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/epley-vs-brzycki</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/epley-formula</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/how-to-calculate-1rm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/how-to-calculate-bench-press-1rm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/how-to-calculate-deadlift-1rm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/how-to-calculate-squat-1rm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/dots-vs-ipf-gl</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/articles/good-wilks-score</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
+  <!-- Company & Support -->
+  <url><loc>https://onerepmaxcalculator.me/about</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/contact</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/donate</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/changelog</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/sitemap</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- Legal Pages -->
+  <url><loc>https://onerepmaxcalculator.me/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/disclaimer</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/cookie-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/affiliate-disclosure</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://onerepmaxcalculator.me/dmca</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>
