@@ -55,9 +55,6 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="One Rep Max & Strength Calculators &mdash; 35 free tools">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="One Rep Max & Strength Calculators">
 
 <!-- Twitter Card Image -->
 <meta name="twitter:image" content="https://onerepmaxcalculator.me/og-image.jpg">
@@ -207,7 +204,7 @@
             <option value="lat_pulldown">Lat Pulldown</option>
             <option value="cable_row">Cable Row</option>
           </optgroup>
-          <option value="custom">Custom&rdquo;Â¦</option>
+          <option value="custom">Custom...</option>
         </select>
       </label>
       <label id="orm-custom-wrap" class="hidden">Custom exercise name
@@ -326,7 +323,7 @@
       </label>
       <label>Percentages</label>
       <div id="pc-checkboxes" class="checkgrid"></div>
-      <label style="margin-top:.5rem;">Custom percentages (comma separated, Ã¢&rdquo;°Â¤100)
+      <label style="margin-top:.5rem;">Custom percentages (comma separated, &le;100)
         <input type="text" id="pc-custom" placeholder="e.g. 72.5, 87.5">
       </label>
       <label>Estimate reps with formula
@@ -367,7 +364,7 @@
       <label>Rounding increment
         <select id="tm-round"></select>
       </label>
-      <label>Working percentages (comma separated, Ã¢&rdquo;°Â¤100)
+      <label>Working percentages (comma separated, &le;100)
         <input type="text" id="tm-work" value="65, 70, 75, 80, 85, 90">
       </label>
       <div class="row no-print">
@@ -580,7 +577,7 @@
         <summary>Coefficient source</summary>
         <p class="muted">
           Wilks uses the 2020 revised (Wilks2) polynomial with a 600 multiplier; Wilks and DOTS clamp bodyweight to their official ranges. IPF GL supports classic/equipped powerlifting and bench-only events. DOTS uses the published DOTS coefficients.
-          IPF GL uses the published Goodlift coefficients (GL = total Ãƒ&mdash; 100 / (A Ã¢Ë†&rsquo; B&middot;e<sup>Ã¢Ë†&rsquo;C&middot;bw</sup>)).
+          IPF GL uses the published Goodlift coefficients (GL = total &times; 100 / (A &minus; B&middot;e<sup>&minus;C&middot;bw</sup>)).
           Bodyweights are converted to kilograms. Federations periodically update or add rulesets
           (separate raw/equipped tables, weight-class adjustments). Verify against current
           federation documentation before using a score for qualification or records.
@@ -659,7 +656,7 @@
           <option value="deadlift">Deadlift</option>
           <option value="press">Overhead Press</option>
           <option value="row">Barbell Row</option>
-          <option value="custom">Custom&rdquo;Â¦</option>
+          <option value="custom">Custom...</option>
         </select>
       </label>
       <label id="br-custom-wrap" class="hidden">Custom exercise name
@@ -1038,7 +1035,7 @@
       <p id="rd-summary" class="muted"></p>
       <div class="meter" aria-hidden="true"><i id="rd-meter" style="width:50%"></i></div>
       <div id="rd-table-wrap" style="margin-top:.8rem;"></div>
-      <p class="muted" style="font-size:.8rem;">Estimated 1RM = weight Ãƒ&middot; %1RM for (reps + reps in reserve). Readiness adjusts today's targets by Ã¢Ë†&rsquo;8% to +4%. These are estimates, not medical advice.</p>
+      <p class="muted" style="font-size:.8rem;">Estimated 1RM = weight &times; %1RM for (reps + reps in reserve). Readiness adjusts today's targets by &minus;8% to +4%. These are estimates, not medical advice.</p>
     </div>
   </div>
 </section>
@@ -1233,7 +1230,7 @@ Deadlift 3x3 @ 80%</textarea></label>
       <label>Method
         <select id="pb-method">
           <option value="531">5/3/1 (Wendler, training max 90%)</option>
-          <option value="linear">Percentage block (volume Ã¢&rdquo; &rsquo; strength Ã¢&rdquo; &rsquo; peak)</option>
+          <option value="linear">Percentage block (volume &rarr; strength &rarr; peak)</option>
           <option value="rpe">RPE-based (autoregulated)</option>
         </select>
       </label>
@@ -1255,7 +1252,7 @@ Deadlift 3x3 @ 80%</textarea></label>
       <label>Squat 1RM (<span class="u"></span>)<input type="number" id="wk-squat" min="1" step="0.5" value="160" data-min="1" data-max="600"></label>
       <label>Bench 1RM (<span class="u"></span>)<input type="number" id="wk-bench" min="1" step="0.5" value="110" data-min="1" data-max="500"></label>
       <label>Deadlift 1RM (<span class="u"></span>)<input type="number" id="wk-dead" min="1" step="0.5" value="190" data-min="1" data-max="600"></label>
-      <p class="muted" style="font-size:.85rem;">Typical balanced raw lifter: bench Ã¢&rdquo;°Ë† 65&ndash;75% of squat, deadlift Ã¢&rdquo;°Ë† 110&ndash;125% of squat. Common coaching guidelines, not strict rules.</p>
+      <p class="muted" style="font-size:.85rem;">Typical balanced raw lifter: bench &ge; 65&ndash;75% of squat, deadlift &ge; 110&ndash;125% of squat. Common coaching guidelines, not strict rules.</p>
     </div>
     <div class="card"><div id="wk-out"></div></div>
   </div>
@@ -1384,12 +1381,12 @@ Deadlift 3x3 @ 80%</textarea></label>
     <div class="card">
       <h3>Where the formulas come from</h3>
       <ul class="muted" style="font-size:.9rem; line-height:1.6;">
-        <li><b>Epley</b> (1985): 1RM = w Ãƒ&mdash; (1 + reps/30)</li>
-        <li><b>Brzycki</b> (1993): 1RM = w Ãƒ&mdash; 36 / (37 Ã¢Ë†&rsquo; reps)</li>
+        <li><b>Epley</b> (1985): 1RM = w &times; (1 + reps/30)</li>
+        <li><b>Brzycki</b> (1993): 1RM = w &times; 36 / (37 &minus; reps)</li>
         <li><b>Lombardi, Lander, Mayhew, O'Conner, Wathan</b>: published rep-max equations</li>
         <li><b>Wilks 2020</b>: Robert Wilks' revised coefficients, multiplier 600</li>
-        <li><b>DOTS</b>: 500 Ãƒ&middot; 4th-degree polynomial of bodyweight (used by OpenPowerlifting)</li>
-        <li><b>IPF GL Points</b>: 100 Ãƒ&mdash; total Ãƒ&middot; (A Ã¢Ë†&rsquo; B&middot;e<sup>Ã¢Ë†&rsquo;C&middot;bw</sup>), official IPF 2020 coefficients per event</li>
+        <li><b>DOTS</b>: 500 &times; 4th-degree polynomial of bodyweight (used by OpenPowerlifting)</li>
+        <li><b>IPF GL Points</b>: 100 &times; total &times; (A &minus; B&middot;e<sup>&minus;C&middot;bw</sup>), official IPF 2020 coefficients per event</li>
         <li><b>RPE chart</b>: Tuchscherer / Helms reps-in-reserve model</li>
         <li><b>Masters age factors</b>: approximate, based on McCulloch / Foster tables</li>
       </ul>
@@ -1472,6 +1469,9 @@ Deadlift 3x3 @ 80%</textarea></label>
     <a href="/faq" style="color: var(--fg); text-decoration: none; padding: 15px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel);">
       <strong>Frequently Asked Questions</strong><br><span class="muted" style="font-size: 13px;">Over 50 strength training answers.</span>
     </a>
+    <a href="/calculator-reference" style="color: var(--accent); text-decoration: none; padding: 15px; border: 1px solid var(--accent); border-radius: 6px; background: var(--panel);">
+      <strong>View All 50+ Tools →</strong><br><span class="muted" style="font-size: 13px;">Explore our complete directory.</span>
+    </a>
   </div>
 </section>
 
@@ -1482,10 +1482,10 @@ Deadlift 3x3 @ 80%</textarea></label>
       <h3 style="font-size: 1rem; margin-bottom: 1rem;">Calculators</h3>
       <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
         <li><a href="/">Home (All 35 Tools)</a></li>
-        <li><a href="/#tab=1rm">1RM Calculator</a></li>
-        <li><a href="/#tab=plate">Plate Loader</a></li>
-        <li><a href="/#tab=score">Wilks / DOTS / IPF</a></li>
-        <li><a href="/#tab=tracker">Training Tracker</a></li>
+        <li><a href="/1rm-calculator">1RM Calculator</a></li>
+        <li><a href="/plate-calculator">Plate Loader</a></li>
+        <li><a href="/wilks-dots-calculator">Wilks / DOTS / IPF</a></li>
+        <li><a href="/training-tracker">Training Tracker</a></li>
       </ul>
     </div>
 
@@ -1505,7 +1505,7 @@ Deadlift 3x3 @ 80%</textarea></label>
       <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
         <li><a href="/about">About Us</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/donate" style="color: var(--accent); font-weight: 600;">Donate Ã¢ÂÂ¤Ã¯Â¸Â</a></li>
+        <li><a href="/donate" style="color: var(--accent); font-weight: 600;">Donate ❤️</a></li>
         <li><a href="/changelog">Changelog</a></li>
         <li><a href="/sitemap">HTML Sitemap</a></li>
       </ul>
@@ -1525,7 +1525,7 @@ Deadlift 3x3 @ 80%</textarea></label>
 
   </div>
   <div style="text-align: center; border-top: 1px solid var(--line); padding: 1.5rem; font-size: 0.85rem; color: var(--muted);">
-    <p>Ã‚Â© 2026 ORM Calc. Estimates only &mdash; not medical advice. Your data stays on your device.</p>
+    <p>© 2026 ORM Calc. Estimates only &mdash; not medical advice. Your data stays on your device.</p>
   </div>
 </footer>
 

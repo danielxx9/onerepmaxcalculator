@@ -1,0 +1,22 @@
+name: Auto-Update Sitemap
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Generate Sitemap
+        run: node generate-sitemap.js
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'Auto-Sitemap Bot'
+          git config --global user.email 'bot@onerepmaxcalculator.me'
+          git add sitemap.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-updated sitemap.xml" && git push)
